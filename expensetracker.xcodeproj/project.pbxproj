@@ -13,6 +13,16 @@
 		0D16AF2A24EE78F100FB04D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D16AF2824EE78F100FB04D6 /* Main.storyboard */; };
 		0D16AF2C24EE78F600FB04D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D16AF2B24EE78F600FB04D6 /* Assets.xcassets */; };
 		0D16AF2F24EE78F600FB04D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D16AF2D24EE78F600FB04D6 /* LaunchScreen.storyboard */; };
+		0D16AF3924EF0F8200FB04D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF3824EF0F8200FB04D6 /* LoginViewController.swift */; };
+		0D16AF3B24EF0F8D00FB04D6 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF3A24EF0F8D00FB04D6 /* SignupViewController.swift */; };
+		0D16AF3D24EF0F9800FB04D6 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF3C24EF0F9800FB04D6 /* ExpensesViewController.swift */; };
+		0D16AF3F24EF0FA100FB04D6 /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF3E24EF0FA100FB04D6 /* IncomeViewController.swift */; };
+		0D16AF4124EF0FD400FB04D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4024EF0FD400FB04D6 /* HomeViewController.swift */; };
+		0D16AF4824EF12E000FB04D6 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4724EF12E000FB04D6 /* HomePresenter.swift */; };
+		0D16AF4A24EF12ED00FB04D6 /* IncomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4924EF12ED00FB04D6 /* IncomePresenter.swift */; };
+		0D16AF4C24EF12F500FB04D6 /* ExpensePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4B24EF12F500FB04D6 /* ExpensePresenter.swift */; };
+		0D16AF4E24EF130000FB04D6 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4D24EF130000FB04D6 /* SignupPresenter.swift */; };
+		0D16AF5024EF130B00FB04D6 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4F24EF130B00FB04D6 /* LoginPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +34,16 @@
 		0D16AF2B24EE78F600FB04D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D16AF2E24EE78F600FB04D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D16AF3024EE78F600FB04D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D16AF3824EF0F8200FB04D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0D16AF3A24EF0F8D00FB04D6 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		0D16AF3C24EF0F9800FB04D6 /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
+		0D16AF3E24EF0FA100FB04D6 /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
+		0D16AF4024EF0FD400FB04D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0D16AF4724EF12E000FB04D6 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		0D16AF4924EF12ED00FB04D6 /* IncomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomePresenter.swift; sourceTree = "<group>"; };
+		0D16AF4B24EF12F500FB04D6 /* ExpensePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePresenter.swift; sourceTree = "<group>"; };
+		0D16AF4D24EF130000FB04D6 /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
+		0D16AF4F24EF130B00FB04D6 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,11 +76,11 @@
 		0D16AF2124EE78F100FB04D6 /* expensetracker */ = {
 			isa = PBXGroup;
 			children = (
+				0D16AF3724EF0F4300FB04D6 /* Scenes */,
 				0D16AF3624EEFEC900FB04D6 /* Extensions */,
 				0D16AF2224EE78F100FB04D6 /* AppDelegate.swift */,
 				0D16AF2424EE78F100FB04D6 /* SceneDelegate.swift */,
 				0D16AF2624EE78F100FB04D6 /* ViewController.swift */,
-				0D16AF2824EE78F100FB04D6 /* Main.storyboard */,
 				0D16AF2B24EE78F600FB04D6 /* Assets.xcassets */,
 				0D16AF2D24EE78F600FB04D6 /* LaunchScreen.storyboard */,
 				0D16AF3024EE78F600FB04D6 /* Info.plist */,
@@ -73,6 +93,64 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0D16AF3724EF0F4300FB04D6 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				0D16AF2824EE78F100FB04D6 /* Main.storyboard */,
+				0D16AF4624EF12AC00FB04D6 /* Home */,
+				0D16AF4524EF12A500FB04D6 /* Income */,
+				0D16AF4424EF129F00FB04D6 /* Expenses */,
+				0D16AF4324EF129900FB04D6 /* Signup */,
+				0D16AF4224EF129100FB04D6 /* Login */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		0D16AF4224EF129100FB04D6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0D16AF3824EF0F8200FB04D6 /* LoginViewController.swift */,
+				0D16AF4F24EF130B00FB04D6 /* LoginPresenter.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0D16AF4324EF129900FB04D6 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				0D16AF3A24EF0F8D00FB04D6 /* SignupViewController.swift */,
+				0D16AF4D24EF130000FB04D6 /* SignupPresenter.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		0D16AF4424EF129F00FB04D6 /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				0D16AF3C24EF0F9800FB04D6 /* ExpensesViewController.swift */,
+				0D16AF4B24EF12F500FB04D6 /* ExpensePresenter.swift */,
+			);
+			path = Expenses;
+			sourceTree = "<group>";
+		};
+		0D16AF4524EF12A500FB04D6 /* Income */ = {
+			isa = PBXGroup;
+			children = (
+				0D16AF3E24EF0FA100FB04D6 /* IncomeViewController.swift */,
+				0D16AF4924EF12ED00FB04D6 /* IncomePresenter.swift */,
+			);
+			path = Income;
+			sourceTree = "<group>";
+		};
+		0D16AF4624EF12AC00FB04D6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0D16AF4024EF0FD400FB04D6 /* HomeViewController.swift */,
+				0D16AF4724EF12E000FB04D6 /* HomePresenter.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,9 +224,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D16AF3924EF0F8200FB04D6 /* LoginViewController.swift in Sources */,
 				0D16AF2724EE78F100FB04D6 /* ViewController.swift in Sources */,
+				0D16AF3B24EF0F8D00FB04D6 /* SignupViewController.swift in Sources */,
+				0D16AF4124EF0FD400FB04D6 /* HomeViewController.swift in Sources */,
+				0D16AF4C24EF12F500FB04D6 /* ExpensePresenter.swift in Sources */,
 				0D16AF2324EE78F100FB04D6 /* AppDelegate.swift in Sources */,
+				0D16AF3F24EF0FA100FB04D6 /* IncomeViewController.swift in Sources */,
+				0D16AF4824EF12E000FB04D6 /* HomePresenter.swift in Sources */,
+				0D16AF5024EF130B00FB04D6 /* LoginPresenter.swift in Sources */,
+				0D16AF4A24EF12ED00FB04D6 /* IncomePresenter.swift in Sources */,
 				0D16AF2524EE78F100FB04D6 /* SceneDelegate.swift in Sources */,
+				0D16AF4E24EF130000FB04D6 /* SignupPresenter.swift in Sources */,
+				0D16AF3D24EF0F9800FB04D6 /* ExpensesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

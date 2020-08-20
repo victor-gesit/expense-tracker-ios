@@ -23,6 +23,9 @@
 		0D16AF4C24EF12F500FB04D6 /* ExpensePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4B24EF12F500FB04D6 /* ExpensePresenter.swift */; };
 		0D16AF4E24EF130000FB04D6 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4D24EF130000FB04D6 /* SignupPresenter.swift */; };
 		0D16AF5024EF130B00FB04D6 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4F24EF130B00FB04D6 /* LoginPresenter.swift */; };
+		0D34748124EF1937003572B9 /* ExpenseTrackerServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34748024EF1937003572B9 /* ExpenseTrackerServer.swift */; };
+		0D34748324EF1D48003572B9 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34748224EF1D48003572B9 /* Endpoints.swift */; };
+		0D34748624EF2A23003572B9 /* ExpenseAppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34748524EF2A23003572B9 /* ExpenseAppErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		0D16AF4B24EF12F500FB04D6 /* ExpensePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePresenter.swift; sourceTree = "<group>"; };
 		0D16AF4D24EF130000FB04D6 /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
 		0D16AF4F24EF130B00FB04D6 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		0D34748024EF1937003572B9 /* ExpenseTrackerServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTrackerServer.swift; sourceTree = "<group>"; };
+		0D34748224EF1D48003572B9 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		0D34748524EF2A23003572B9 /* ExpenseAppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseAppErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,8 @@
 		0D16AF2124EE78F100FB04D6 /* expensetracker */ = {
 			isa = PBXGroup;
 			children = (
+				0D34748424EF1E1F003572B9 /* Models */,
+				0D34747F24EF1906003572B9 /* Networking */,
 				0D16AF3724EF0F4300FB04D6 /* Scenes */,
 				0D16AF3624EEFEC900FB04D6 /* Extensions */,
 				0D16AF2224EE78F100FB04D6 /* AppDelegate.swift */,
@@ -153,6 +161,23 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		0D34747F24EF1906003572B9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0D34748024EF1937003572B9 /* ExpenseTrackerServer.swift */,
+				0D34748224EF1D48003572B9 /* Endpoints.swift */,
+				0D34748524EF2A23003572B9 /* ExpenseAppErrors.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		0D34748424EF1E1F003572B9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -224,11 +249,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D34748124EF1937003572B9 /* ExpenseTrackerServer.swift in Sources */,
 				0D16AF3924EF0F8200FB04D6 /* LoginViewController.swift in Sources */,
 				0D16AF2724EE78F100FB04D6 /* ViewController.swift in Sources */,
 				0D16AF3B24EF0F8D00FB04D6 /* SignupViewController.swift in Sources */,
+				0D34748324EF1D48003572B9 /* Endpoints.swift in Sources */,
 				0D16AF4124EF0FD400FB04D6 /* HomeViewController.swift in Sources */,
 				0D16AF4C24EF12F500FB04D6 /* ExpensePresenter.swift in Sources */,
+				0D34748624EF2A23003572B9 /* ExpenseAppErrors.swift in Sources */,
 				0D16AF2324EE78F100FB04D6 /* AppDelegate.swift in Sources */,
 				0D16AF3F24EF0FA100FB04D6 /* IncomeViewController.swift in Sources */,
 				0D16AF4824EF12E000FB04D6 /* HomePresenter.swift in Sources */,

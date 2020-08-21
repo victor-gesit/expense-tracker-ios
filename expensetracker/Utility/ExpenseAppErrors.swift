@@ -11,8 +11,8 @@ import Foundation
 enum ExpenseAppErrors: Error {
     case unknownError
     case noNetwork
-    case signupFailed(String)
-    case loginFailed(String)
+    case signupFailed(String?)
+    case loginFailed(String?)
 }
 
 extension ExpenseAppErrors: LocalizedError {

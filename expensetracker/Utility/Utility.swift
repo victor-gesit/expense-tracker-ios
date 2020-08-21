@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class Utility {
-    static func showError(message: String, view: UIView) {
+    static func showError(message: String?, view: UIView) {
         let errorView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 80))
         errorView.backgroundColor = #colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)
         

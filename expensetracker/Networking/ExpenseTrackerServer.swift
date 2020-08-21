@@ -18,7 +18,13 @@ class ExpenseAppServer {
             "password": password
         ]
         makeAPICall(route: .signup, method: .post, paramaters: parameters, type: UserAuthResponse.self) { (data, response, error, result) in
-            
+            if let success = result?.success, success {
+                DispatchQueue.main.async {
+                    completion(result?.user, nil)
+                }
+            } else {
+                completion(nil, ExpenseAppErrors.loginFailed(result?.errors?.first))
+            }
         }
     }
     

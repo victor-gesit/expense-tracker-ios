@@ -16,7 +16,13 @@ extension String {
         return emailTest.evaluate(with: email)
     }
     
+    func isValidPasswordText() -> Bool {
+        return self.count >= 2
+    }
+    
     struct ErrorMessages {
         static let invalidEmail = "Email is invalid"
+        static let missingFields = "Missing fields"
+        static let passwordError = "Password is too short"
     }
 }

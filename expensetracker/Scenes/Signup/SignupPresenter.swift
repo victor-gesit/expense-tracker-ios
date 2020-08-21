@@ -14,6 +14,8 @@ protocol SignupInput: class {
     var nameTextField: UITextField! { get set }
     var emailTextField: UITextField! { get set }
     var passwordTextField: UITextField! { get set }
+    var continueButton: UIButton! { get set }
+    var activityIndicator: UIActivityIndicatorView! { get set }
 }
 
 protocol SignupOutput: class {
@@ -23,7 +25,7 @@ protocol SignupOutput: class {
 class SignupPresenter: SignupOutput {
     weak var view: SignupInput?
     var parentView: UIView
-    let server = ExpenseAppServer.shared
+    private let server = ExpenseAppServer.shared
     
     init(view: SignupInput) {
         self.view = view
@@ -31,6 +33,39 @@ class SignupPresenter: SignupOutput {
     }
     
     func signUp() {
-        Utility.showError(message: String.ErrorMessages.invalidEmail, view: self.parentView)
+        validateAndSignUp()
     }
+    
+    private func validateAndSignUp() {
+        guard let view = self.view else { return }
+        if let email = view.emailTextField.text, !email.isEmpty,
+            let name = view.nameTextField.text, !name.isEmpty,
+            let password = view.passwordTextField.text, !password.isEmpty {
+            if !email.isValidEmail() {
+                Utility.showError(message: String.ErrorMessages.invalidEmail, view: self.parentView)
+                return
+            }
+            
+            if !password.isValidPasswordText() {
+                Utility.showError(message: String.ErrorMessages.passwordError, view: self.parentView)
+                return
+            }
+            
+            toggleButton(enable: false)
+            server.signUp(name: name, email: email, password: password) { (user, error) in
+                self.toggleButton(enable: true)
+                if let error = error {
+                    Utility.showError(message: error.localizedDescription, view: self.parentView)
+                }
+            }
+        } else {
+            Utility.showError(message: String.ErrorMessages.missingFields, view: self.parentView)
+        }
+    }
+    
+    private func toggleButton(enable: Bool) {
+        self.view?.continueButton.isEnabled = enable
+        enable ? self.view?.activityIndicator.stopAnimating() : self.view?.activityIndicator.startAnimating()
+    }
+    
 }

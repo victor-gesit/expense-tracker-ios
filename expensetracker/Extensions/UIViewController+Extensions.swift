@@ -10,17 +10,25 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    class var storyboardID: String {
+    static var storyboardID: String {
         return "\(self)"
     }
     
     public static func instantiate(fromAppStoryboard appStoryboard: AppStoryboard, withIdentifier identifier: String? = nil) -> Self {
         return appStoryboard.viewController(viewControllerClass: self, identifier: identifier)
     }
+    
+    static func makeRootViewController(storyboard: AppStoryboard) {
+        let mapViewController = self.instantiate(fromAppStoryboard: storyboard)
+        let rootVC = UINavigationController(rootViewController: mapViewController)
+        let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow})
+        window?.rootViewController = rootVC
+        window?.makeKeyAndVisible()
+    }
 }
 
 public enum AppStoryboard: String {
-    case Home
+    case Main
     
     var instance: UIStoryboard {
         return UIStoryboard(name: self.rawValue, bundle: Bundle.main)

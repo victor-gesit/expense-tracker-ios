@@ -22,6 +22,9 @@ class SignupViewController: BaseViewController, SignupInput {
         presenter = SignupPresenter(view: self)
     }
     
+    @IBAction func goToLogin(_ sender: UIButton) {
+        self.presenter?.goToLogin()
+    }
     @IBAction func signUp(_ sender: UIButton) {
         self.presenter?.signUp()
     }

@@ -20,9 +20,10 @@ protocol SignupInput: class {
 
 protocol SignupOutput: class {
     func signUp()
+    func goToLogin()
 }
 
-class SignupPresenter: SignupOutput {
+class SignupPresenter: NSObject {
     weak var view: SignupInput?
     var parentView: UIView
     private let server = ExpenseAppServer.shared
@@ -31,11 +32,7 @@ class SignupPresenter: SignupOutput {
         self.view = view
         self.parentView = view.view
     }
-    
-    func signUp() {
-        validateAndSignUp()
-    }
-    
+
     private func validateAndSignUp() {
         guard let view = self.view else { return }
         if let email = view.emailTextField.text, !email.isEmpty,
@@ -66,5 +63,16 @@ class SignupPresenter: SignupOutput {
     private func toggleButton(enable: Bool) {
         self.view?.continueButton.isEnabled = enable
         enable ? self.view?.activityIndicator.stopAnimating() : self.view?.activityIndicator.startAnimating()
+    }
+}
+
+extension SignupPresenter: SignupOutput {
+    func goToLogin() {
+        let loginVC = LoginViewController.instantiate(fromAppStoryboard: .Main)
+        (self.view as? UIViewController)?.navigationController?.pushViewController(loginVC, animated: true)
+    }
+    
+    func signUp() {
+        validateAndSignUp()
     }
 }

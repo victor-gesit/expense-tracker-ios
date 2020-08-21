@@ -19,6 +19,7 @@ protocol LoginInput: class {
 
 protocol LoginOutput: class {
     func signIn()
+    func goToSignup()
 }
 
 class LoginPresenter: NSObject {
@@ -64,6 +65,11 @@ class LoginPresenter: NSObject {
 }
 
 extension LoginPresenter: LoginOutput {
+    func goToSignup() {
+        let loginVC = SignupViewController.instantiate(fromAppStoryboard: .Main)
+        (self.view as? UIViewController)?.navigationController?.pushViewController(loginVC, animated: true)
+    }
+    
     func signIn() {
         validateAndSignIn()
     }

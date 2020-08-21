@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, LoginInput {
+class LoginViewController: BaseViewController, LoginInput {
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emailTextField: UITextField!
@@ -21,6 +21,9 @@ class LoginViewController: UIViewController, LoginInput {
         presenter = LoginPresenter(view: self)
     }
     
+    @IBAction func goToSignup(_ sender: UIButton) {
+        presenter?.goToSignup()
+    }
     @IBAction func logIn(_ sender: UIButton) {
         presenter?.signIn()
     }

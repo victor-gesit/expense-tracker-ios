@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
     @IBOutlet weak var expensesContainerView: UIView!
     @IBOutlet weak var incomeContainerView: UIView!
     override func viewDidLoad() {

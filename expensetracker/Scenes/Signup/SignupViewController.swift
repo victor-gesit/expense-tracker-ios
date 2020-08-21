@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupViewController: UIViewController, SignupInput {
+class SignupViewController: BaseViewController, SignupInput {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -21,5 +21,6 @@ class SignupViewController: UIViewController, SignupInput {
     }
     
     @IBAction func signUp(_ sender: UIButton) {
+        self.presenter?.signUp()
     }
 }

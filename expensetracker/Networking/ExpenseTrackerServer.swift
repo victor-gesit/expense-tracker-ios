@@ -9,13 +9,38 @@
 import Foundation
 
 class ExpenseAppServer {
-    func signUp(name: String, email: String, password: String) {
+    static let shared = ExpenseAppServer()
+
+    func signUp(name: String, email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
+        let parameters = [
+            "name": name,
+            "email": email,
+            "password": password
+        ]
+        makeAPICall(route: .signup, method: .post, paramaters: parameters, type: UserAuthResponse.self) { (data, response, error, result) in
+            
+        }
     }
     
-    func signIn(email: String, password: String) {
+    func signIn(email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
+        let parameters = [
+            "email": email,
+            "password": password
+        ]
+        makeAPICall(route: .login, method: .post, paramaters: parameters, type: UserAuthResponse.self) { (data, response, error, result) in
+            
+        }
     }
     
     func createExpense(category: String, purpose: String, amount: Double) {
+        let parameters: [String: Any] = [
+            "category": category,
+            "purpose": purpose,
+            "amount": amount
+        ]
+        makeAPICall(route: .createExpense, method: .post, paramaters: parameters, type: ExpenseCreateResponse.self) { (data, response, error, result) in
+            
+        }
     }
     
     func updateExpense(expenseId: String, amount: Double) {

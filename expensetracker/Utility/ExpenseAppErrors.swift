@@ -18,10 +18,10 @@ enum ExpenseAppErrors: Error {
 extension ExpenseAppErrors: LocalizedError {
     var errorDescription: String? {
         switch self {
-        case .unknownError: return "Unknown error"
-        case .noNetwork: return "Cannot connect to the internet"
-        case .signupFailed(let reason): return reason
-        case .loginFailed(let reason): return reason
+        case .unknownError: return String.ErrorMessages.unknownError
+        case .noNetwork: return String.ErrorMessages.noInternetConnection
+        case .signupFailed(let reason): return reason ?? String.ErrorMessages.unknownError
+        case .loginFailed(let reason): return reason ?? String.ErrorMessages.unknownError
         }
     }
 }

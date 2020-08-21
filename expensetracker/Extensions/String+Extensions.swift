@@ -24,5 +24,7 @@ extension String {
         static let invalidEmail = "Email is invalid"
         static let missingFields = "Missing fields"
         static let passwordError = "Password is too short"
+        static let unknownError = "Unknown Error"
+        static let noInternetConnection = "Cannot connect to the internet"
     }
 }

@@ -67,5 +67,4 @@ class SignupPresenter: SignupOutput {
         self.view?.continueButton.isEnabled = enable
         enable ? self.view?.activityIndicator.stopAnimating() : self.view?.activityIndicator.startAnimating()
     }
-    
 }

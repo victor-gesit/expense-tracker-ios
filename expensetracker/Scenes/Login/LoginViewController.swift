@@ -9,6 +9,8 @@
 import UIKit
 
 class LoginViewController: UIViewController, LoginInput {
+    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -20,5 +22,6 @@ class LoginViewController: UIViewController, LoginInput {
     }
     
     @IBAction func logIn(_ sender: UIButton) {
+        presenter?.signIn()
     }
 }

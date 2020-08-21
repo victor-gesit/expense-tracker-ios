@@ -23,7 +23,7 @@ class ExpenseAppServer {
                     completion(result?.user, nil)
                 }
             } else {
-                completion(nil, ExpenseAppErrors.loginFailed(result?.errors?.first))
+                completion(nil, ExpenseAppErrors.loginFailed(result?.errors?.first ?? result?.message))
             }
         }
     }
@@ -34,7 +34,13 @@ class ExpenseAppServer {
             "password": password
         ]
         makeAPICall(route: .login, method: .post, paramaters: parameters, type: UserAuthResponse.self) { (data, response, error, result) in
-            
+            if let success = result?.success, success {
+                DispatchQueue.main.async {
+                    completion(result?.user, nil)
+                }
+            } else {
+                completion(nil, ExpenseAppErrors.loginFailed(result?.errors?.first ?? result?.message))
+            }
         }
     }
     

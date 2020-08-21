@@ -19,4 +19,5 @@ struct UserAuthResponse: Codable {
     var success: Bool
     var token: String?
     var errors: [String]?
+    var message: String?
 }

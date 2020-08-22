@@ -7,3 +7,28 @@
 //
 
 import Foundation
+
+extension ExpenseAppServer {
+    func createExpense(category: String, purpose: String, amount: Double) {
+        let parameters: [String: Any] = [
+            "category": category,
+            "purpose": purpose,
+            "amount": amount
+        ]
+        makeAPICall(route: .createExpense, method: .post, paramaters: parameters, type: ExpenseCreateResponse.self) { (data, response, error, result) in
+            
+        }
+    }
+    
+    func updateExpense(expenseId: String, amount: Double) {
+    }
+    
+    func deleteExpense(expenseId: String) {
+    }
+    
+    func getExpenses(completion: @escaping ([Expense]?, Error?) -> Void) {
+        makeAPICall(route: .readExpenses, method: .get, type: ExpenseFetchResponse.self) { (data, response, error, result) in
+            completion(result?.expenses, result?.success ?? false ? nil : ExpenseAppErrors.getExpensesFailed(result?.message))
+        }
+    }
+}

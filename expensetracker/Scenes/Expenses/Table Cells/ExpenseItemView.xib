@@ -9,7 +9,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExpenseItemView" customModule="expensetracker" customModuleProvider="target">
             <connections>
+                <outlet property="amountLabel" destination="TpZ-WH-cKf" id="l94-or-UNx"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="bVH-UO-WYk"/>
+                <outlet property="dateLabel" destination="t1A-C8-Eb1" id="VrU-aB-jNq"/>
+                <outlet property="descriptionLabel" destination="FVp-aG-5GG" id="rih-BO-LHq"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

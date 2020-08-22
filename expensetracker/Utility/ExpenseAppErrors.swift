@@ -13,6 +13,7 @@ enum ExpenseAppErrors: Error {
     case noNetwork
     case signupFailed(String?)
     case loginFailed(String?)
+    case getExpensesFailed(String?)
 }
 
 extension ExpenseAppErrors: LocalizedError {
@@ -22,6 +23,7 @@ extension ExpenseAppErrors: LocalizedError {
         case .noNetwork: return String.ErrorMessages.noInternetConnection
         case .signupFailed(let reason): return reason ?? String.ErrorMessages.unknownError
         case .loginFailed(let reason): return reason ?? String.ErrorMessages.unknownError
+        case .getExpensesFailed(let reason): return reason ?? String.ErrorMessages.unknownError
         }
     }
 }

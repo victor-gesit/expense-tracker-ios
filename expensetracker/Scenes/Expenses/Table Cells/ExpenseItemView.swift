@@ -11,6 +11,15 @@ import UIKit
 class ExpenseItemView: UIView {
     @IBOutlet var contentView: UIView!
     static let NIB_NAME = "ExpenseItemView"
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
+    var expense: Expense? {
+        didSet {
+            descriptionLabel.text = expense?.purpose
+            dateLabel.text = Date.dateAndMonthFromString(expense?.createdAt ?? "")
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

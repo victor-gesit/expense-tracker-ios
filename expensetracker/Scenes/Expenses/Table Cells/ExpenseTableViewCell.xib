@@ -83,6 +83,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="categoryIcon" destination="oF2-6z-6yM" id="DMJ-RW-b7j"/>
+                <outlet property="expenseCategoryLabel" destination="KJd-VS-J7c" id="5yT-xH-YH7"/>
                 <outlet property="percentageContainerView" destination="gFH-yv-guo" id="cqY-gi-oaO"/>
             </connections>
             <point key="canvasLocation" x="277.536231884058" y="127.90178571428571"/>

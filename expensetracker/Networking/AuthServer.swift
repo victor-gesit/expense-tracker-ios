@@ -17,7 +17,7 @@ extension ExpenseAppServer {
         ]
         makeAPICall(route: .signup, method: .post, paramaters: parameters, type: UserAuthResponse.self) { (data, response, error, result) in
             if let success = result?.success, success {
-                self.saveSignedInUser(user: result?.user)
+                self.saveSignedInUser(user: result?.user, token: result?.token)
                 DispatchQueue.main.async {
                     completion(result?.user, nil)
                 }
@@ -34,7 +34,7 @@ extension ExpenseAppServer {
         ]
         makeAPICall(route: .login, method: .post, paramaters: parameters, type: UserAuthResponse.self) { (data, response, error, result) in
             if let success = result?.success, success {
-                self.saveSignedInUser(user: result?.user)
+                self.saveSignedInUser(user: result?.user, token: result?.token)
                 DispatchQueue.main.async {
                     completion(result?.user, nil)
                 }
@@ -44,9 +44,8 @@ extension ExpenseAppServer {
         }
     }
     
-    private func saveSignedInUser(user: User?) {
-        if let user = user {
-            UserDefaults.standard.signedInUser = user
-        }
+    private func saveSignedInUser(user: User?, token: String?) {
+        UserDefaults.standard.signedInUser = user
+        UserDefaults.standard.authToken = token
     }
 }

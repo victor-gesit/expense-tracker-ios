@@ -11,6 +11,7 @@ import Foundation
 extension UserDefaults {
     private enum Keys: String {
         case signedInUser
+        case authToken
     }
     
     var signedInUser: User? {
@@ -26,6 +27,20 @@ extension UserDefaults {
                 set(data, forKey: Keys.signedInUser.rawValue)
             } else {
                 removeObject(forKey: Keys.signedInUser.rawValue)
+            }
+        }
+    }
+    
+    var authToken: String? {
+        get {
+            string(forKey: Keys.authToken.rawValue)
+        }
+        
+        set {
+            if let newToken = newValue {
+                set(newToken, forKey: Keys.authToken.rawValue)
+            } else {
+                removeObject(forKey: Keys.authToken.rawValue)
             }
         }
     }

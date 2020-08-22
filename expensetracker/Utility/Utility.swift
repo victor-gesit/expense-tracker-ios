@@ -11,6 +11,7 @@ import UIKit
 
 class Utility {
     static func showError(message: String?, view: UIView) {
+        guard let messageString = message, !messageString.isEmpty else { return }
         let errorView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 80))
         errorView.backgroundColor = #colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)
         
@@ -35,5 +36,22 @@ class Utility {
     
     static func goHome() {
         HomeViewController.makeRootViewController(storyboard: .Main)
+    }
+    
+    static func groupExpensesByCategories(_ expenses: [Expense]) -> [ExpenseCategory] {
+        var categories: [ExpenseCategory] = ExpenseCategory.inbuiltCategories
+        for expense in expenses {
+            if let category = categories.first(where: { (expenseCategory) -> Bool in
+                expenseCategory.category?.lowercased() == expense.category.lowercased()
+            }) {
+                category.expenses.append(expense)
+            } else {
+                let categoryString = expense.category.capitalized
+                let cat = ExpenseCategory(expenses: [expense], category: categoryString)
+                categories.append(cat)
+            }
+        }
+        
+        return categories
     }
 }

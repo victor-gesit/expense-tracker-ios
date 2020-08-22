@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum ExpenseType: String {
+enum ExpenseType: String, CaseIterable {
     case travel
     case home
     case clothing
@@ -21,13 +21,31 @@ enum ExpenseType: String {
     var icon: UIImage? {
         return UIImage(named: self.rawValue)
     }
+    
+    static func typeFromString(typeString: String?) -> ExpenseType? {
+        return ExpenseType.allCases.first { $0.rawValue.lowercased() == typeString?.lowercased() }
+    }
 }
 
-struct ExpenseCategory {
+class ExpenseCategory {
     var expenses: [Expense] = []
+    var category: String?
+    var inbuiltType: ExpenseType?
     
     var totalExpense: Double {
         let totalExpenses: Double = expenses.reduce(0) { $0 + $1.amount }
         return totalExpenses
+    }
+    
+    init(expenses: [Expense], category: String?) {
+        self.expenses = expenses
+        self.category = category
+        self.inbuiltType = ExpenseType.typeFromString(typeString: category)
+    }
+    
+    static var inbuiltCategories: [ExpenseCategory] {
+        return ExpenseType.allCases.compactMap {
+            ExpenseCategory(expenses: [], category: $0.rawValue.capitalized)
+        }
     }
 }

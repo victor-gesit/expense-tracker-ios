@@ -10,26 +10,6 @@ import Foundation
 
 class ExpenseAppServer {
     static let shared = ExpenseAppServer()
-    
-    func createExpense(category: String, purpose: String, amount: Double) {
-        let parameters: [String: Any] = [
-            "category": category,
-            "purpose": purpose,
-            "amount": amount
-        ]
-        makeAPICall(route: .createExpense, method: .post, paramaters: parameters, type: ExpenseCreateResponse.self) { (data, response, error, result) in
-            
-        }
-    }
-    
-    func updateExpense(expenseId: String, amount: Double) {
-    }
-    
-    func deleteExpense(expenseId: String) {
-    }
-    
-    func readExpenses() {
-    }
 }
 
 extension ExpenseAppServer {
@@ -50,7 +30,8 @@ extension ExpenseAppServer {
         guard let url = URL(string: route.description) else { return nil }
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 60.0)
         var headers = [
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "x-access-token": UserDefaults.standard.authToken ?? ""
         ]
         if let headerParam = headerParameters {
             for (key, value) in headerParam {

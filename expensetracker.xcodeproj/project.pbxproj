@@ -43,6 +43,7 @@
 		0D4B18CF24F170FF005A056D /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18CE24F170FF005A056D /* UserDefaults+Extensions.swift */; };
 		0D4B18D124F178B5005A056D /* AuthServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18D024F178B5005A056D /* AuthServer.swift */; };
 		0D4B18D324F178C0005A056D /* ExpensesServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18D224F178C0005A056D /* ExpensesServer.swift */; };
+		0D4B18D524F1AC98005A056D /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18D424F1AC98005A056D /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		0D4B18CE24F170FF005A056D /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		0D4B18D024F178B5005A056D /* AuthServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServer.swift; sourceTree = "<group>"; };
 		0D4B18D224F178C0005A056D /* ExpensesServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesServer.swift; sourceTree = "<group>"; };
+		0D4B18D424F1AC98005A056D /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				0D34748B24EFCE9F003572B9 /* String+Extensions.swift */,
 				0D34748D24EFCF2B003572B9 /* UIViewController+Extensions.swift */,
 				0D34748F24EFCF37003572B9 /* BaseViewController.swift */,
+				0D4B18D424F1AC98005A056D /* Date+Extensions.swift */,
 				0D0A98AE24F041B10057A239 /* UIView+Extensions.swift */,
 				0D4B18CE24F170FF005A056D /* UserDefaults+Extensions.swift */,
 			);
@@ -328,6 +331,7 @@
 				0D00080C24F06DEE00AAD35F /* ExpenseType.swift in Sources */,
 				0D34749024EFCF37003572B9 /* BaseViewController.swift in Sources */,
 				0D16AF4124EF0FD400FB04D6 /* HomeViewController.swift in Sources */,
+				0D4B18D524F1AC98005A056D /* Date+Extensions.swift in Sources */,
 				0D0A98A824F020740057A239 /* ExpenseTableViewCell.swift in Sources */,
 				0D34748A24EF2ECC003572B9 /* Expense.swift in Sources */,
 				0D0A98AC24F020890057A239 /* ExpandedExpenseTableViewCell.swift in Sources */,

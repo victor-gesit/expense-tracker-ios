@@ -13,9 +13,16 @@ class ExpenseTableViewCell: UITableViewCell {
     
     @IBOutlet var percentageContainerView: UIView!
     @IBOutlet weak var categoryIcon: UIImageView!
+    @IBOutlet weak var expenseCategoryLabel: UILabel!
+    
     
     var expensePercentage: CGFloat = 0.5
-    var expenseCategory: ExpenseType = .home
+    var expenseCategory: ExpenseCategory? {
+        didSet {
+            categoryIcon.image = expenseCategory?.inbuiltType?.icon
+            expenseCategoryLabel.text = expenseCategory?.category
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         setupPercentage()
@@ -35,7 +42,6 @@ class ExpenseTableViewCell: UITableViewCell {
     func setupContainerView() {
         percentageContainerView.layer.cornerRadius = 4
         percentageContainerView.layer.masksToBounds = true
-        categoryIcon.image = expenseCategory.icon
     }
     
     

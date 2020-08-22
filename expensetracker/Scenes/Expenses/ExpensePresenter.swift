@@ -11,24 +11,45 @@ import UIKit
 
 protocol ExpensesViewInput: class {
     var tableView: UITableView! { get set }
+    var view: UIView! { get set }
 }
 
 protocol ExpensesViewOutput: class {
     func viewDidLoad()
+    func fetchExpenses()
 }
 
 class ExpensesViewPresenter: NSObject {
     weak var view: ExpensesViewInput?
-    var selectedRowIndex: Int? = 0
+    var selectedRowIndex: Int?
+    private let server = ExpenseAppServer.shared
+    private var parentView: UIView?
+    
+    private var expenseCategories: [ExpenseCategory] = [] {
+        didSet {
+            view?.tableView.reloadData()
+        }
+    }
     
     init(view: ExpensesViewInput) {
         self.view = view
+        self.parentView = view.view
     }
 }
 
 extension ExpensesViewPresenter: ExpensesViewOutput {
     func viewDidLoad() {
         setupTableView()
+        fetchExpenses()
+    }
+    
+    func fetchExpenses() {
+        server.getExpenses {[weak self] (expenses, error) in
+            if let error = error, let parentView = self?.parentView {
+                Utility.showError(message: error.localizedDescription, view: parentView)
+            }
+            self?.expenseCategories =  Utility.groupExpensesByCategories(expenses ?? [])
+        }
     }
     
     func setupTableView() {
@@ -42,21 +63,24 @@ extension ExpensesViewPresenter: ExpensesViewOutput {
 
 extension ExpensesViewPresenter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return expenseCategories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let selectedIndex = selectedRowIndex, selectedIndex == indexPath.row {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.expandedExpenseCellId, for: indexPath) as! ExpandedExpenseTableViewCell
+            cell.expenseCategory = expenseCategories[indexPath.row]
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.expenseCellId, for: indexPath) as! ExpenseTableViewCell
+        cell.expenseCategory = expenseCategories[indexPath.row]
         return cell
     }
 }
 
 extension ExpensesViewPresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if expenseCategories[indexPath.row].expenses.isEmpty { return }
         self.selectedRowIndex = self.selectedRowIndex == indexPath.row ? nil : indexPath.row
         tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .automatic)
     }

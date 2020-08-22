@@ -12,19 +12,34 @@ class ExpandedExpenseTableViewCell: UITableViewCell {
     static let NIB_NAME = "\(ExpandedExpenseTableViewCell.self)"
     @IBOutlet weak var titleContainerView: UIView!
     @IBOutlet weak var expensesStackView: UIStackView!
+    @IBOutlet weak var totalCategoryExpenseLabel: UILabel!
+    @IBOutlet weak var categoryIcon: UIImageView!
+    @IBOutlet weak var categoryLabel: UILabel!
     
     var expenseCategory: ExpenseCategory? {
         didSet {
             setupExpenses()
         }
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupView()
+    }
+    
+    func setupView() {
+        titleContainerView.addHorizontalGradient(colorOne: #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1), colorTwo: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1), endPointX: 1)
+    }
 
     func setupExpenses() {
-        titleContainerView.addHorizontalGradient(colorOne: #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1), colorTwo: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1), endPointX: 1)
+        guard let expenses = expenseCategory?.expenses else { return }
         for view in expensesStackView.arrangedSubviews {
             expensesStackView.removeArrangedSubview(view)
         }
-        guard let expenses = expenseCategory?.expenses else { return }
+        totalCategoryExpenseLabel.text = expenseCategory?.totalExpense.toCurrency(.naira)
+        categoryLabel.text = expenseCategory?.category
+        categoryIcon.image = expenseCategory?.inbuiltType?.icon ?? ExpenseType.defaultIcon
+        
         for expense in expenses {
             let expenseItemView = ExpenseItemView(frame: .zero)
             expenseItemView.expense = expense

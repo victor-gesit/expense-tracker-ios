@@ -14,29 +14,40 @@ class ExpenseTableViewCell: UITableViewCell {
     @IBOutlet var percentageContainerView: UIView!
     @IBOutlet weak var categoryIcon: UIImageView!
     @IBOutlet weak var expenseCategoryLabel: UILabel!
-    
-    
-    var expensePercentage: CGFloat = 0.5
+    @IBOutlet weak var percentageLabel: UILabel!
+
+    var expensePercentage: CGFloat = 0
     var expenseCategory: ExpenseCategory? {
         didSet {
-            categoryIcon.image = expenseCategory?.inbuiltType?.icon
+            expensePercentage = 0
+            categoryIcon.image = expenseCategory?.inbuiltType?.icon ?? ExpenseType.defaultIcon
             expenseCategoryLabel.text = expenseCategory?.category
+            expensePercentage = CGFloat(expenseCategory?.percentage ?? 0)
+            percentageLabel.text = expenseCategory?.percentage?.toPercentageString()
+            setupPercentage()
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupPercentage()
         setupContainerView()
+        setupPercentage()
     }
     
     func setupPercentage() {
+        if let previousPercentageView =
+            percentageContainerView.subviews.first(where: {$0.tag == 888}) {
+            previousPercentageView.removeFromSuperview()
+        }
+        
         let percentageViewHeight = percentageContainerView.frame.height
         let percentageViewWidth = (expensePercentage * (percentageContainerView.frame.width - percentageViewHeight)) + percentageViewHeight
         let gradientEndpointX = percentageContainerView.frame.width / percentageViewWidth
-        let percView = UIView(frame: CGRect(x: 0, y: 0, width: percentageViewWidth, height: percentageViewHeight))
-        percView.addHorizontalGradient(colorOne: #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1), colorTwo: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1), endPointX: gradientEndpointX)
-        percView.roundCorners(corners: [.topRight, .bottomRight], radius: percentageViewHeight/2)
-        self.percentageContainerView.addSubview(percView)
+        
+        let percentageGradientView = UIView(frame: CGRect(x: 0, y: 0, width: percentageViewWidth, height: percentageViewHeight))
+        percentageGradientView.addHorizontalGradient(colorOne: #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1), colorTwo: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1), endPointX: gradientEndpointX)
+        percentageGradientView.roundCorners(corners: [.topRight, .bottomRight], radius: percentageViewHeight/2)
+        percentageGradientView.tag = 888
+        self.percentageContainerView.addSubview(percentageGradientView)
     }
     
     func setupContainerView() {

@@ -45,13 +45,16 @@ class Utility {
                 expenseCategory.category?.lowercased() == expense.category.lowercased()
             }) {
                 category.expenses.append(expense)
+                ExpenseCategory.allCategoriesExpense += expense.amount
             } else {
                 let categoryString = expense.category.capitalized
                 let cat = ExpenseCategory(expenses: [expense], category: categoryString)
+                ExpenseCategory.allCategoriesExpense += expense.amount
                 categories.append(cat)
             }
         }
-        
-        return categories
+        return categories.sorted {
+            $0.totalExpense > $1.totalExpense
+        }
     }
 }

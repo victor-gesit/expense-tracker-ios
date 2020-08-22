@@ -81,8 +81,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="categoryIcon" destination="vsW-E0-h3m" id="gvV-Bl-Snk"/>
+                <outlet property="categoryLabel" destination="6AQ-HY-ddW" id="R3h-LG-iSs"/>
                 <outlet property="expensesStackView" destination="cjm-eM-yin" id="BjI-9a-ous"/>
                 <outlet property="titleContainerView" destination="nKx-1Z-zZ3" id="vLp-nU-bH8"/>
+                <outlet property="totalCategoryExpenseLabel" destination="1Hn-l5-RFm" id="tO7-Ce-DSw"/>
             </connections>
             <point key="canvasLocation" x="205.07246376811597" y="232.70089285714283"/>
         </tableViewCell>

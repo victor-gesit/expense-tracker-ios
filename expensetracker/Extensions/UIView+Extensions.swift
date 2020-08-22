@@ -17,10 +17,16 @@ extension UIView {
         gradientLayer.frame = self.bounds
         gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: endPointX, y: 0.5)
-        
+        gradientLayer.name = "horizontalGradient"
+        if let previousGradient = self.layer.sublayers?.first(where: {
+            $0.name == "horizontalGradient"
+        }) {
+            previousGradient.removeFromSuperlayer()
+        }
         self.layer.addSublayer(gradientLayer)
         layer.masksToBounds = true
     }
+
     func roundCorners(corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()

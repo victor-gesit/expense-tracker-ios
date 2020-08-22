@@ -35,6 +35,12 @@
                                     <action selector="addExpenseWithSender:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IpV-cI-Huw"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cc0-uO-8vm">
+                                <rect key="frame" x="245" y="22.5" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.043137254899999998" green="0.19215686269999999" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -42,6 +48,8 @@
                             <constraint firstItem="gFH-yv-guo" firstAttribute="leading" secondItem="gM3-Uk-MsC" secondAttribute="leading" id="GCy-Li-fnY"/>
                             <constraint firstAttribute="trailing" secondItem="vIa-tD-gmp" secondAttribute="trailing" constant="12" id="P2d-OQ-MJE"/>
                             <constraint firstAttribute="width" constant="340" id="Rjk-va-Iv7"/>
+                            <constraint firstItem="vIa-tD-gmp" firstAttribute="leading" secondItem="cc0-uO-8vm" secondAttribute="trailing" constant="8" id="YhQ-nd-MhP"/>
+                            <constraint firstItem="cc0-uO-8vm" firstAttribute="centerY" secondItem="gM3-Uk-MsC" secondAttribute="centerY" id="ZSF-jN-pYP"/>
                             <constraint firstAttribute="bottom" secondItem="gFH-yv-guo" secondAttribute="bottom" constant="5" id="c73-D7-1ey"/>
                             <constraint firstItem="vIa-tD-gmp" firstAttribute="centerY" secondItem="gM3-Uk-MsC" secondAttribute="centerY" id="htK-08-hOm"/>
                             <constraint firstAttribute="trailing" secondItem="gFH-yv-guo" secondAttribute="trailing" id="weS-D0-sYP"/>
@@ -60,7 +68,7 @@
                             <constraint firstAttribute="height" constant="18" id="CTt-14-HS9"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJd-VS-J7c">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="KJd-VS-J7c">
                         <rect key="frame" x="135.5" y="24.5" width="150" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="TdJ-HW-hKS"/>
@@ -85,6 +93,7 @@
                 <outlet property="categoryIcon" destination="oF2-6z-6yM" id="DMJ-RW-b7j"/>
                 <outlet property="expenseCategoryLabel" destination="KJd-VS-J7c" id="5yT-xH-YH7"/>
                 <outlet property="percentageContainerView" destination="gFH-yv-guo" id="cqY-gi-oaO"/>
+                <outlet property="percentageLabel" destination="cc0-uO-8vm" id="cW9-UL-3k3"/>
             </connections>
             <point key="canvasLocation" x="277.536231884058" y="127.90178571428571"/>
         </tableViewCell>

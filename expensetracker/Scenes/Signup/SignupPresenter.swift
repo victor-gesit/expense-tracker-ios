@@ -34,6 +34,8 @@ class SignupPresenter: NSObject {
     }
 
     private func validateAndSignUp() {
+        Utility.goHome()
+        return
         guard let view = self.view else { return }
         if let email = view.emailTextField.text, !email.isEmpty,
             let name = view.nameTextField.text, !name.isEmpty,
@@ -53,6 +55,8 @@ class SignupPresenter: NSObject {
                 self.toggleButton(enable: true)
                 if let error = error {
                     Utility.showError(message: error.localizedDescription, view: self.parentView)
+                } else {
+                    Utility.goHome()
                 }
             }
         } else {

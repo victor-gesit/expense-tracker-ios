@@ -51,6 +51,8 @@ class LoginPresenter: NSObject {
                 self.toggleButton(enable: true)
                 if let error = error {
                     Utility.showError(message: error.localizedDescription, view: self.parentView)
+                } else {
+                    Utility.goHome()
                 }
             }
         } else {

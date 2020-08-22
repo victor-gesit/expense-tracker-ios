@@ -8,9 +8,12 @@
 
 import UIKit
 
-class ExpensesViewController: UIViewController {
+class ExpensesViewController: UIViewController, ExpensesViewInput {
     @IBOutlet weak var tableView: UITableView!
+    var presenter: ExpensesViewOutput?
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = ExpensesViewPresenter(view: self)
+        presenter?.viewDidLoad()
     }
 }

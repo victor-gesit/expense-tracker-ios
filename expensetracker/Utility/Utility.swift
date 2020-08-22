@@ -32,4 +32,8 @@ class Utility {
             errorView.removeFromSuperview()
         }
     }
+    
+    static func goHome() {
+        HomeViewController.makeRootViewController(storyboard: .Main)
+    }
 }

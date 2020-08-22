@@ -14,6 +14,7 @@ class BaseViewController: UIViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGestureRecognizer)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.view.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
     }
     
     @objc func dismissKeyboard() {

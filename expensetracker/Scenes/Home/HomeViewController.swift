@@ -13,5 +13,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var incomeContainerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 }

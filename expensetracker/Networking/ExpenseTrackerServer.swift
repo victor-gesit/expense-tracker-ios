@@ -10,39 +10,6 @@ import Foundation
 
 class ExpenseAppServer {
     static let shared = ExpenseAppServer()
-
-    func signUp(name: String, email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
-        let parameters = [
-            "name": name,
-            "email": email,
-            "password": password
-        ]
-        makeAPICall(route: .signup, method: .post, paramaters: parameters, type: UserAuthResponse.self) { (data, response, error, result) in
-            if let success = result?.success, success {
-                DispatchQueue.main.async {
-                    completion(result?.user, nil)
-                }
-            } else {
-                completion(nil, ExpenseAppErrors.loginFailed(result?.errors?.first ?? result?.message))
-            }
-        }
-    }
-    
-    func signIn(email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
-        let parameters = [
-            "email": email,
-            "password": password
-        ]
-        makeAPICall(route: .login, method: .post, paramaters: parameters, type: UserAuthResponse.self) { (data, response, error, result) in
-            if let success = result?.success, success {
-                DispatchQueue.main.async {
-                    completion(result?.user, nil)
-                }
-            } else {
-                completion(nil, ExpenseAppErrors.loginFailed(result?.errors?.first ?? result?.message))
-            }
-        }
-    }
     
     func createExpense(category: String, purpose: String, amount: Double) {
         let parameters: [String: Any] = [
@@ -66,7 +33,7 @@ class ExpenseAppServer {
 }
 
 extension ExpenseAppServer {
-    private func makeAPICall<T: Codable>(route: Route, method: Method, paramaters: [String: Any]? = nil, type: T.Type, headerParameters: [String: String]? = nil, requiresToken: Bool = false, _ completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?, _ result: T? ) -> Void ) {
+    func makeAPICall<T: Codable>(route: Route, method: Method, paramaters: [String: Any]? = nil, type: T.Type, headerParameters: [String: String]? = nil, requiresToken: Bool = false, _ completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?, _ result: T? ) -> Void ) {
         
         guard let request = createRequest(route: route, method: method, parameters:paramaters, headerParameters: headerParameters) else {
             completion(nil, nil, ExpenseAppErrors.unknownError, nil)

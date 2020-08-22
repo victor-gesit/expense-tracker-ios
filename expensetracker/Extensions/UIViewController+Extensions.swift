@@ -19,9 +19,9 @@ extension UIViewController {
     }
     
     static func makeRootViewController(storyboard: AppStoryboard) {
-        let mapViewController = self.instantiate(fromAppStoryboard: storyboard)
-        let rootVC = UINavigationController(rootViewController: mapViewController)
-        let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow})
+        let mainViewController = self.instantiate(fromAppStoryboard: storyboard)
+        let rootVC = UINavigationController(rootViewController: mainViewController)
+        let window = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
     }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D00080C24F06DEE00AAD35F /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00080B24F06DEE00AAD35F /* ExpenseCategory.swift */; };
+		0D00080C24F06DEE00AAD35F /* ExpenseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00080B24F06DEE00AAD35F /* ExpenseType.swift */; };
 		0D0A98A824F020740057A239 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A98A624F020740057A239 /* ExpenseTableViewCell.swift */; };
 		0D0A98A924F020740057A239 /* ExpenseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D0A98A724F020740057A239 /* ExpenseTableViewCell.xib */; };
 		0D0A98AC24F020890057A239 /* ExpandedExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A98AA24F020890057A239 /* ExpandedExpenseTableViewCell.swift */; };
@@ -40,10 +40,13 @@
 		0D34749324EFD6E3003572B9 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34749224EFD6E3003572B9 /* Utility.swift */; };
 		0D4B18CB24F09E69005A056D /* ExpenseItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D4B18CA24F09E69005A056D /* ExpenseItemView.xib */; };
 		0D4B18CD24F09E85005A056D /* ExpenseItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18CC24F09E85005A056D /* ExpenseItemView.swift */; };
+		0D4B18CF24F170FF005A056D /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18CE24F170FF005A056D /* UserDefaults+Extensions.swift */; };
+		0D4B18D124F178B5005A056D /* AuthServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18D024F178B5005A056D /* AuthServer.swift */; };
+		0D4B18D324F178C0005A056D /* ExpensesServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18D224F178C0005A056D /* ExpensesServer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0D00080B24F06DEE00AAD35F /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
+		0D00080B24F06DEE00AAD35F /* ExpenseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseType.swift; sourceTree = "<group>"; };
 		0D0A98A624F020740057A239 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		0D0A98A724F020740057A239 /* ExpenseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseTableViewCell.xib; sourceTree = "<group>"; };
 		0D0A98AA24F020890057A239 /* ExpandedExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedExpenseTableViewCell.swift; sourceTree = "<group>"; };
@@ -78,6 +81,9 @@
 		0D34749224EFD6E3003572B9 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		0D4B18CA24F09E69005A056D /* ExpenseItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseItemView.xib; sourceTree = "<group>"; };
 		0D4B18CC24F09E85005A056D /* ExpenseItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItemView.swift; sourceTree = "<group>"; };
+		0D4B18CE24F170FF005A056D /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		0D4B18D024F178B5005A056D /* AuthServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServer.swift; sourceTree = "<group>"; };
+		0D4B18D224F178C0005A056D /* ExpensesServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesServer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,7 @@
 				0D34748D24EFCF2B003572B9 /* UIViewController+Extensions.swift */,
 				0D34748F24EFCF37003572B9 /* BaseViewController.swift */,
 				0D0A98AE24F041B10057A239 /* UIView+Extensions.swift */,
+				0D4B18CE24F170FF005A056D /* UserDefaults+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -213,6 +220,8 @@
 			children = (
 				0D34748024EF1937003572B9 /* ExpenseTrackerServer.swift */,
 				0D34748224EF1D48003572B9 /* Endpoints.swift */,
+				0D4B18D024F178B5005A056D /* AuthServer.swift */,
+				0D4B18D224F178C0005A056D /* ExpensesServer.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -222,7 +231,7 @@
 			children = (
 				0D34748724EF2EC5003572B9 /* User.swift */,
 				0D34748924EF2ECC003572B9 /* Expense.swift */,
-				0D00080B24F06DEE00AAD35F /* ExpenseCategory.swift */,
+				0D00080B24F06DEE00AAD35F /* ExpenseType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -316,7 +325,7 @@
 				0D16AF2724EE78F100FB04D6 /* ViewController.swift in Sources */,
 				0D16AF3B24EF0F8D00FB04D6 /* SignupViewController.swift in Sources */,
 				0D34748324EF1D48003572B9 /* Endpoints.swift in Sources */,
-				0D00080C24F06DEE00AAD35F /* ExpenseCategory.swift in Sources */,
+				0D00080C24F06DEE00AAD35F /* ExpenseType.swift in Sources */,
 				0D34749024EFCF37003572B9 /* BaseViewController.swift in Sources */,
 				0D16AF4124EF0FD400FB04D6 /* HomeViewController.swift in Sources */,
 				0D0A98A824F020740057A239 /* ExpenseTableViewCell.swift in Sources */,
@@ -328,7 +337,10 @@
 				0D16AF2324EE78F100FB04D6 /* AppDelegate.swift in Sources */,
 				0D16AF3F24EF0FA100FB04D6 /* IncomeViewController.swift in Sources */,
 				0D34748E24EFCF2B003572B9 /* UIViewController+Extensions.swift in Sources */,
+				0D4B18CF24F170FF005A056D /* UserDefaults+Extensions.swift in Sources */,
+				0D4B18D124F178B5005A056D /* AuthServer.swift in Sources */,
 				0D34749324EFD6E3003572B9 /* Utility.swift in Sources */,
+				0D4B18D324F178C0005A056D /* ExpensesServer.swift in Sources */,
 				0D16AF4824EF12E000FB04D6 /* HomePresenter.swift in Sources */,
 				0D34748C24EFCE9F003572B9 /* String+Extensions.swift in Sources */,
 				0D16AF5024EF130B00FB04D6 /* LoginPresenter.swift in Sources */,

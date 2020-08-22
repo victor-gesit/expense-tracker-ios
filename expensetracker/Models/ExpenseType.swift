@@ -1,5 +1,5 @@
 //
-//  ExpenseCategory.swift
+//  ExpenseType.swift
 //  expensetracker
 //
 //  Created by Victor Idongesit on 21/08/2020.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum ExpenseCategory: String {
+enum ExpenseType: String {
     case travel
     case home
     case clothing
@@ -20,5 +20,14 @@ enum ExpenseCategory: String {
     
     var icon: UIImage? {
         return UIImage(named: self.rawValue)
+    }
+}
+
+struct ExpenseCategory {
+    var expenses: [Expense] = []
+    
+    var totalExpense: Double {
+        let totalExpenses: Double = expenses.reduce(0) { $0 + $1.amount }
+        return totalExpenses
     }
 }

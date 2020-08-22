@@ -13,7 +13,7 @@ class ExpandedExpenseTableViewCell: UITableViewCell {
     @IBOutlet weak var titleContainerView: UIView!
     @IBOutlet weak var expensesStackView: UIStackView!
     
-    var expenses: [Int] = [1, 2, 3]
+    var expenseCategory: ExpenseCategory?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,12 +25,9 @@ class ExpandedExpenseTableViewCell: UITableViewCell {
         for view in expensesStackView.arrangedSubviews {
             expensesStackView.removeArrangedSubview(view)
         }
+        guard let expenses = expenseCategory?.expenses else { return }
         for expense in expenses {
             let expenseItemView = ExpenseItemView(frame: .zero)
-//            expenseItemView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-            let label = UILabel(frame: .zero)
-            label.text = "Hello... "
-            print("Height... ", expenseItemView.bounds.height)
             expensesStackView.addArrangedSubview(expenseItemView)
         }
     }

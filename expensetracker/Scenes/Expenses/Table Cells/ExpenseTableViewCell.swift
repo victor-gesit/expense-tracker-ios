@@ -15,7 +15,7 @@ class ExpenseTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryIcon: UIImageView!
     
     var expensePercentage: CGFloat = 0.5
-    var expenseCategory: ExpenseCategory = .home
+    var expenseCategory: ExpenseType = .home
     override func awakeFromNib() {
         super.awakeFromNib()
         setupPercentage()

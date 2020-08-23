@@ -20,10 +20,17 @@ extension String {
         return self.count >= 2
     }
     
+    static var emptyString: String {
+        get {
+            return ""
+        }
+    }
+    
     struct ErrorMessages {
         static let invalidEmail = "Email is invalid"
         static let missingFields = "Missing fields"
         static let passwordError = "Password is too short"
+        static let invalidAmount = "Invalid amount entered"
         static let unknownError = "Unknown Error"
         static let noInternetConnection = "Cannot connect to the internet"
     }

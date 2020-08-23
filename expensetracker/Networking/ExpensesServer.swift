@@ -9,7 +9,7 @@
 import Foundation
 
 extension ExpenseAppServer {
-    func createExpense(category: String, purpose: String, amount: Double) {
+    func createExpense(category: String, purpose: String, amount: Double, completion: @escaping (Expense?, Error?) -> Void) {
         let parameters: [String: Any] = [
             "category": category,
             "purpose": purpose,
@@ -17,6 +17,7 @@ extension ExpenseAppServer {
         ]
         makeAPICall(route: .createExpense, method: .post, paramaters: parameters, type: ExpenseCreateResponse.self) { (data, response, error, result) in
             
+            completion(result?.expense, result?.success ?? false ? nil : ExpenseAppErrors.getExpensesFailed(result?.message))
         }
     }
     

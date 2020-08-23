@@ -31,7 +31,7 @@ extension ExpenseAppServer {
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 60.0)
         var headers = [
             "Content-Type": "application/json",
-            "x-access-token": UserDefaults.standard.authToken ?? ""
+            "x-access-token": UserDefaults.standard.authToken ?? String.emptyString
         ]
         if let headerParam = headerParameters {
             for (key, value) in headerParam {

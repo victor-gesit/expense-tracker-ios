@@ -69,7 +69,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="KJd-VS-J7c">
-                        <rect key="frame" x="135.5" y="24.5" width="150" height="21"/>
+                        <rect key="frame" x="141.5" y="24.5" width="150" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="TdJ-HW-hKS"/>
                         </constraints>
@@ -79,8 +79,8 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="KJd-VS-J7c" firstAttribute="leading" secondItem="gFH-yv-guo" secondAttribute="leading" constant="56" id="6bX-MM-zod"/>
                     <constraint firstItem="oF2-6z-6yM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9rT-xT-ahc"/>
-                    <constraint firstItem="KJd-VS-J7c" firstAttribute="leading" secondItem="oF2-6z-6yM" secondAttribute="trailing" constant="12" id="PW7-sU-0dk"/>
                     <constraint firstItem="oF2-6z-6yM" firstAttribute="leading" secondItem="gFH-yv-guo" secondAttribute="leading" constant="20" id="TUU-sJ-dCr"/>
                     <constraint firstItem="KJd-VS-J7c" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZaH-bG-NiF"/>
                     <constraint firstItem="gM3-Uk-MsC" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="c9g-6H-61K"/>

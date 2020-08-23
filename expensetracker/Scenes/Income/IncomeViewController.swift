@@ -9,7 +9,6 @@
 import UIKit
 
 class IncomeViewController: UIViewController, IncomeViewInput {
-
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()

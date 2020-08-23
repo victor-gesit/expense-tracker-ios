@@ -17,7 +17,7 @@ class ExpenseItemView: UIView {
     var expense: Expense? {
         didSet {
             descriptionLabel.text = expense?.purpose
-            dateLabel.text = Date.dateAndMonthFromString(expense?.createdAt ?? "")
+            dateLabel.text = Date.dateAndMonthFromString(expense?.createdAt ?? String.emptyString)
             amountLabel.text = expense?.amount.toCurrency(.naira)
         }
     }

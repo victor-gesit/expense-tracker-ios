@@ -19,14 +19,21 @@ protocol ExpensesViewOutput: class {
     func fetchExpenses()
 }
 
+protocol AddExpenseDelegate: class {
+    func didCreateExpense(expense: Expense)
+}
+
 class ExpensesViewPresenter: NSObject {
     weak var view: ExpensesViewInput?
     var selectedRowIndex: Int?
     private let server = ExpenseAppServer.shared
-    private var parentView: UIView?
+    private var parentView: UIView
     
-    private var expenseCategories: [ExpenseCategory] = [] {
+    private var expenseCategories: [ExpenseCategory] = []
+    
+    private var expenses: [Expense] = [] {
         didSet {
+            self.expenseCategories =  Utility.groupExpensesByCategories(expenses)
             view?.tableView.reloadData()
         }
     }
@@ -37,6 +44,9 @@ class ExpensesViewPresenter: NSObject {
     }
 }
 
+
+// MARK: - ExpensesViewOutput
+
 extension ExpensesViewPresenter: ExpensesViewOutput {
     func viewDidLoad() {
         setupTableView()
@@ -44,11 +54,13 @@ extension ExpensesViewPresenter: ExpensesViewOutput {
     }
     
     func fetchExpenses() {
-        server.getExpenses {[weak self] (expenses, error) in
-            if let error = error, let parentView = self?.parentView {
-                Utility.showError(message: error.localizedDescription, view: parentView)
+        
+        server.getExpenses {[weak self] (result, error) in
+            guard let expenses = result else {
+                Utility.showError(message: error?.localizedDescription, view: self?.parentView)
+                return
             }
-            self?.expenseCategories =  Utility.groupExpensesByCategories(expenses ?? [])
+            self?.expenses = expenses
         }
     }
     
@@ -58,15 +70,22 @@ extension ExpensesViewPresenter: ExpensesViewOutput {
         view?.tableView.tableFooterView = UIView()
         view?.tableView.register(UINib(nibName: ExpenseTableViewCell.NIB_NAME, bundle: .main), forCellReuseIdentifier: Constants.expenseCellId)
         view?.tableView.register(UINib(nibName: ExpandedExpenseTableViewCell.NIB_NAME, bundle: .main), forCellReuseIdentifier: Constants.expandedExpenseCellId)
+        view?.tableView.register(UINib(nibName: AddCategoryTableViewCell.NIB_NAME, bundle: .main), forCellReuseIdentifier: Constants.addExpenseCategoryCellId)
     }
 }
 
+// MARK: - Table Datasource Functions
+
 extension ExpensesViewPresenter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expenseCategories.count
+        return expenseCategories.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == expenseCategories.count {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.addExpenseCategoryCellId, for: indexPath) as! AddCategoryTableViewCell
+            return cell
+        }
         if let selectedIndex = selectedRowIndex, selectedIndex == indexPath.row {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.expandedExpenseCellId, for: indexPath) as! ExpandedExpenseTableViewCell
             cell.expenseCategory = expenseCategories[indexPath.row]
@@ -74,12 +93,21 @@ extension ExpensesViewPresenter: UITableViewDataSource {
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.expenseCellId, for: indexPath) as! ExpenseTableViewCell
         cell.expenseCategory = expenseCategories[indexPath.row]
+        cell.delegate = self
         return cell
     }
 }
 
+// MARK: - Table Delegate Functions
+
 extension ExpensesViewPresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == expenseCategories.count {
+            let addExpenseVC = AddExpenseViewController.instantiate(fromAppStoryboard: .Main)
+            (self.view as? UIViewController)?.present(addExpenseVC, animated: true)
+            return
+        }
+    
         if expenseCategories[indexPath.row].expenses.isEmpty { return }
         self.selectedRowIndex = self.selectedRowIndex == indexPath.row ? nil : indexPath.row
         tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .automatic)
@@ -94,9 +122,32 @@ extension ExpensesViewPresenter: UITableViewDelegate {
     }
 }
 
+
+// MARK: - Table Constants
+
 extension ExpensesViewPresenter {
     struct Constants {
         static let expenseCellId = "expenseCellId"
         static let expandedExpenseCellId = "expandedExpenseCellId"
+        static let addExpenseCategoryCellId = "addExpenseCategoryCellId"
+    }
+}
+
+// MARK: - ExpenseTableCellDelegate
+
+extension ExpensesViewPresenter: ExpenseTableCellDelegate {
+    func openExpenseAdder(with category: ExpenseCategory) {
+        let addExpenseVC = AddExpenseViewController.instantiate(fromAppStoryboard: .Main)
+        addExpenseVC.delegate = self
+        addExpenseVC.category = category
+        (self.view as? UIViewController)?.present(addExpenseVC, animated: true)
+    }
+}
+
+// MARK: - AddExpenseDelegate
+
+extension ExpensesViewPresenter: AddExpenseDelegate {
+    func didCreateExpense(expense: Expense) {
+        self.expenses.append(expense)
     }
 }

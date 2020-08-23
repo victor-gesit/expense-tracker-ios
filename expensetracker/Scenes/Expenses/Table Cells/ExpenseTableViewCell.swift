@@ -15,6 +15,8 @@ class ExpenseTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryIcon: UIImageView!
     @IBOutlet weak var expenseCategoryLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
+    
+    var delegate: ExpenseTableCellDelegate?
 
     var expensePercentage: CGFloat = 0
     var expenseCategory: ExpenseCategory? {
@@ -51,12 +53,18 @@ class ExpenseTableViewCell: UITableViewCell {
     }
     
     func setupContainerView() {
+        selectionStyle = .none
         percentageContainerView.layer.cornerRadius = 4
         percentageContainerView.layer.masksToBounds = true
     }
     
     
     @IBAction func addExpense(sender: UIButton) {
-        
+        guard let category = expenseCategory else { return }
+        delegate?.openExpenseAdder(with: category)
     }
+}
+
+protocol ExpenseTableCellDelegate {
+    func openExpenseAdder(with category: ExpenseCategory)
 }

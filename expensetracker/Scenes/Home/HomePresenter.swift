@@ -7,13 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 protocol HomeViewInput: class {
-    
+    var view: UIView! { get set }
 }
 
 protocol HomeViewOutput: class {
-    
 }
 
 class HomePresenter: HomeViewOutput {

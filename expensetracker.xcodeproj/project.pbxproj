@@ -45,6 +45,10 @@
 		0D4B18D324F178C0005A056D /* ExpensesServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18D224F178C0005A056D /* ExpensesServer.swift */; };
 		0D4B18D524F1AC98005A056D /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18D424F1AC98005A056D /* Date+Extensions.swift */; };
 		0D4B18D724F1B9C8005A056D /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18D624F1B9C8005A056D /* Double+Extensions.swift */; };
+		0D4B18DC24F1DF06005A056D /* AddCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18DA24F1DF06005A056D /* AddCategoryTableViewCell.swift */; };
+		0D4B18DD24F1DF06005A056D /* AddCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D4B18DB24F1DF06005A056D /* AddCategoryTableViewCell.xib */; };
+		0D4B18E024F1F52E005A056D /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18DF24F1F52E005A056D /* AddExpenseViewController.swift */; };
+		0D4B18E224F25E83005A056D /* AddExpensePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18E124F25E83005A056D /* AddExpensePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +58,7 @@
 		0D0A98AA24F020890057A239 /* ExpandedExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		0D0A98AB24F020890057A239 /* ExpandedExpenseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandedExpenseTableViewCell.xib; sourceTree = "<group>"; };
 		0D0A98AE24F041B10057A239 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		0D16AF1F24EE78F100FB04D6 /* expensetracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expensetracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D16AF1F24EE78F100FB04D6 /* eTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D16AF2224EE78F100FB04D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D16AF2424EE78F100FB04D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0D16AF2624EE78F100FB04D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +92,10 @@
 		0D4B18D224F178C0005A056D /* ExpensesServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesServer.swift; sourceTree = "<group>"; };
 		0D4B18D424F1AC98005A056D /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		0D4B18D624F1B9C8005A056D /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		0D4B18DA24F1DF06005A056D /* AddCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		0D4B18DB24F1DF06005A056D /* AddCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCategoryTableViewCell.xib; sourceTree = "<group>"; };
+		0D4B18DF24F1F52E005A056D /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		0D4B18E124F25E83005A056D /* AddExpensePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,8 @@
 				0D0A98AA24F020890057A239 /* ExpandedExpenseTableViewCell.swift */,
 				0D0A98AB24F020890057A239 /* ExpandedExpenseTableViewCell.xib */,
 				0D4B18CA24F09E69005A056D /* ExpenseItemView.xib */,
+				0D4B18DA24F1DF06005A056D /* AddCategoryTableViewCell.swift */,
+				0D4B18DB24F1DF06005A056D /* AddCategoryTableViewCell.xib */,
 				0D4B18CC24F09E85005A056D /* ExpenseItemView.swift */,
 			);
 			path = "Table Cells";
@@ -125,7 +135,7 @@
 		0D16AF2024EE78F100FB04D6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0D16AF1F24EE78F100FB04D6 /* expensetracker.app */,
+				0D16AF1F24EE78F100FB04D6 /* eTracker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				0D16AF2824EE78F100FB04D6 /* Main.storyboard */,
+				0D4B18DE24F1F516005A056D /* Add Expense */,
 				0D16AF4624EF12AC00FB04D6 /* Home */,
 				0D16AF4524EF12A500FB04D6 /* Income */,
 				0D16AF4424EF129F00FB04D6 /* Expenses */,
@@ -251,6 +262,15 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		0D4B18DE24F1F516005A056D /* Add Expense */ = {
+			isa = PBXGroup;
+			children = (
+				0D4B18DF24F1F52E005A056D /* AddExpenseViewController.swift */,
+				0D4B18E124F25E83005A056D /* AddExpensePresenter.swift */,
+			);
+			path = "Add Expense";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -268,7 +288,7 @@
 			);
 			name = expensetracker;
 			productName = expensetracker;
-			productReference = 0D16AF1F24EE78F100FB04D6 /* expensetracker.app */;
+			productReference = 0D16AF1F24EE78F100FB04D6 /* eTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -312,6 +332,7 @@
 				0D16AF2F24EE78F600FB04D6 /* LaunchScreen.storyboard in Resources */,
 				0D16AF2C24EE78F600FB04D6 /* Assets.xcassets in Resources */,
 				0D4B18CB24F09E69005A056D /* ExpenseItemView.xib in Resources */,
+				0D4B18DD24F1DF06005A056D /* AddCategoryTableViewCell.xib in Resources */,
 				0D0A98AD24F020890057A239 /* ExpandedExpenseTableViewCell.xib in Resources */,
 				0D0A98A924F020740057A239 /* ExpenseTableViewCell.xib in Resources */,
 				0D16AF2A24EE78F100FB04D6 /* Main.storyboard in Resources */,
@@ -340,7 +361,10 @@
 				0D34748A24EF2ECC003572B9 /* Expense.swift in Sources */,
 				0D0A98AC24F020890057A239 /* ExpandedExpenseTableViewCell.swift in Sources */,
 				0D16AF4C24EF12F500FB04D6 /* ExpensePresenter.swift in Sources */,
+				0D4B18DC24F1DF06005A056D /* AddCategoryTableViewCell.swift in Sources */,
 				0D34748824EF2EC5003572B9 /* User.swift in Sources */,
+				0D4B18E024F1F52E005A056D /* AddExpenseViewController.swift in Sources */,
+				0D4B18E224F25E83005A056D /* AddExpensePresenter.swift in Sources */,
 				0D34748624EF2A23003572B9 /* ExpenseAppErrors.swift in Sources */,
 				0D16AF2324EE78F100FB04D6 /* AppDelegate.swift in Sources */,
 				0D16AF3F24EF0FA100FB04D6 /* IncomeViewController.swift in Sources */,
@@ -508,7 +532,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gesit.expensetracker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = eTracker;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -526,7 +550,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gesit.expensetracker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = eTracker;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

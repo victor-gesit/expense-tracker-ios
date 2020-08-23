@@ -34,6 +34,33 @@ class Utility {
         }
     }
     
+    static func toggleOverlayingLoader(show: Bool) {
+        guard let mainWindow = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else { return }
+        if !show {
+            let overlay = mainWindow.subviews.first(where: {$0.tag == Int.AppViewTags.loaderOverlayViewTag})
+            UIView.animate(withDuration: 0.1, delay: 1, options: [.curveEaseOut], animations: {
+                overlay?.alpha = 0
+            }) { (_) in
+                overlay?.removeFromSuperview()
+            }
+            return
+        }
+        
+        let overlayingView = UIView(frame: UIScreen.main.bounds)
+        overlayingView.alpha = 0.5
+        overlayingView.backgroundColor = .lightGray
+        
+        let loader = UIActivityIndicatorView(frame: mainWindow.frame)
+        loader.tintColor = .black
+        loader.style = .large
+        loader.startAnimating()
+        overlayingView.addSubview(loader)
+        
+        overlayingView.tag = Int.AppViewTags.loaderOverlayViewTag
+        
+        mainWindow.addSubview(overlayingView)
+    }
+    
     static func goHome() {
         HomeViewController.makeRootViewController(storyboard: .Main)
     }

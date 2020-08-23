@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
     @IBOutlet weak var expensesContainerView: UIView!
     @IBOutlet weak var incomeContainerView: UIView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: false)

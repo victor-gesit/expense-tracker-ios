@@ -34,8 +34,6 @@ class SignupPresenter: NSObject {
     }
 
     private func validateAndSignUp() {
-        Utility.goHome()
-        return
         guard let view = self.view else { return }
         if let email = view.emailTextField.text, !email.isEmpty,
             let name = view.nameTextField.text, !name.isEmpty,

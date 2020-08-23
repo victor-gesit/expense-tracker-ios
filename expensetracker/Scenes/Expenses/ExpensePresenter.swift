@@ -51,19 +51,21 @@ extension ExpensesViewPresenter: ExpensesViewOutput {
     func viewDidLoad() {
         setupTableView()
         fetchExpenses()
+        Utility.toggleOverlayingLoader(show: true)
     }
     
     @objc
     func fetchExpenses() {
         server.getExpenses {[weak self] (result, error) in
+            DispatchQueue.main.async {
+                Utility.toggleOverlayingLoader(show: false)
+                self?.view?.tableView.refreshControl?.endRefreshing()
+            }
             guard let expenses = result else {
                 Utility.showError(message: error?.localizedDescription, view: self?.parentView)
                 return
             }
             self?.expenses = expenses
-            DispatchQueue.main.async {
-                self?.view?.tableView.refreshControl?.endRefreshing()
-            }
         }
     }
     

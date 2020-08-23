@@ -13,6 +13,7 @@
 		0D0A98AC24F020890057A239 /* ExpandedExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A98AA24F020890057A239 /* ExpandedExpenseTableViewCell.swift */; };
 		0D0A98AD24F020890057A239 /* ExpandedExpenseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D0A98AB24F020890057A239 /* ExpandedExpenseTableViewCell.xib */; };
 		0D0A98AF24F041B10057A239 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A98AE24F041B10057A239 /* UIView+Extensions.swift */; };
+		0D12E4D124F2C833005229B7 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D12E4D024F2C833005229B7 /* Int+Extensions.swift */; };
 		0D16AF2324EE78F100FB04D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF2224EE78F100FB04D6 /* AppDelegate.swift */; };
 		0D16AF2524EE78F100FB04D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF2424EE78F100FB04D6 /* SceneDelegate.swift */; };
 		0D16AF2724EE78F100FB04D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF2624EE78F100FB04D6 /* ViewController.swift */; };
@@ -59,6 +60,7 @@
 		0D0A98AA24F020890057A239 /* ExpandedExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		0D0A98AB24F020890057A239 /* ExpandedExpenseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandedExpenseTableViewCell.xib; sourceTree = "<group>"; };
 		0D0A98AE24F041B10057A239 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		0D12E4D024F2C833005229B7 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		0D16AF1F24EE78F100FB04D6 /* eTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D16AF2224EE78F100FB04D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D16AF2424EE78F100FB04D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				0D4B18D424F1AC98005A056D /* Date+Extensions.swift */,
 				0D0A98AE24F041B10057A239 /* UIView+Extensions.swift */,
 				0D4B18CE24F170FF005A056D /* UserDefaults+Extensions.swift */,
+				0D12E4D024F2C833005229B7 /* Int+Extensions.swift */,
 				0D4B18D624F1B9C8005A056D /* Double+Extensions.swift */,
 			);
 			path = Extensions;
@@ -355,6 +358,7 @@
 				0D0A98AF24F041B10057A239 /* UIView+Extensions.swift in Sources */,
 				0D16AF2724EE78F100FB04D6 /* ViewController.swift in Sources */,
 				0D16AF3B24EF0F8D00FB04D6 /* SignupViewController.swift in Sources */,
+				0D12E4D124F2C833005229B7 /* Int+Extensions.swift in Sources */,
 				0D34748324EF1D48003572B9 /* Endpoints.swift in Sources */,
 				0D00080C24F06DEE00AAD35F /* ExpenseType.swift in Sources */,
 				0D34749024EFCF37003572B9 /* BaseViewController.swift in Sources */,

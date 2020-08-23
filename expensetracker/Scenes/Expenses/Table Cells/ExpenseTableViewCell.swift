@@ -48,7 +48,7 @@ class ExpenseTableViewCell: UITableViewCell {
         let percentageGradientView = UIView(frame: CGRect(x: 0, y: 0, width: percentageViewWidth, height: percentageViewHeight))
         percentageGradientView.addHorizontalGradient(colorOne: #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1), colorTwo: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1), endPointX: gradientEndpointX)
         percentageGradientView.roundCorners(corners: [.topRight, .bottomRight], radius: percentageViewHeight/2)
-        percentageGradientView.tag = 888
+        percentageGradientView.tag = Int.AppViewTags.horizontalLayerGradientTag
         self.percentageContainerView.addSubview(percentageGradientView)
     }
     

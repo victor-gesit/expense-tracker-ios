@@ -8,12 +8,17 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, HomeViewInput {
     @IBOutlet weak var expensesContainerView: UIView!
     @IBOutlet weak var incomeContainerView: UIView!
-    @IBOutlet weak var segmentControl: UISegmentedControl!
+    var presenter: HomeViewOutput?
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = HomePresenter(view: self)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    @IBAction func signOut(_ sender: UIButton) {
+        presenter?.signOut()
     }
 }

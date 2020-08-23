@@ -33,4 +33,9 @@ class AddExpenseViewController: BaseViewController, AddExpenseViewInput {
     @IBAction func addExpense(_ sender: UIButton) {
         presenter?.submitExpense()
     }
+    
+    override func viewDidLayoutSubviews() {
+        presenter?.viewDidLayoutSubviews()
+        super.viewDidLayoutSubviews()
+    }
 }

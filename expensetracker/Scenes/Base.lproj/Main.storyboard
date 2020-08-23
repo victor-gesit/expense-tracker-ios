@@ -150,46 +150,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Amz-DG-rNr">
-                                <rect key="frame" x="40" y="64" width="334" height="32"/>
-                                <segments>
-                                    <segment title="Expenses"/>
-                                    <segment title="Income"/>
-                                </segments>
-                            </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqy-o6-q1M">
-                                <rect key="frame" x="16" y="115" width="382" height="727"/>
+                                <rect key="frame" x="16" y="113" width="382" height="729"/>
                                 <connections>
                                     <segue destination="r0k-HP-bPt" kind="embed" id="mG8-wg-kwB"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eng-3Y-rhz">
-                                <rect key="frame" x="16" y="115" width="382" height="727"/>
+                                <rect key="frame" x="16" y="113" width="382" height="729"/>
                                 <connections>
                                     <segue destination="0tY-SW-HZi" kind="embed" id="Kqs-wg-E80"/>
                                 </connections>
                             </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eTracker" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcj-OQ-aJL">
+                                <rect key="frame" x="16" y="56" width="109.5" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" red="0.043137254899999998" green="0.19215686269999999" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5F-7j-2xh">
+                                <rect key="frame" x="341" y="59.5" width="57" height="30"/>
+                                <state key="normal" title="Sign out">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOut:" destination="hUa-Up-us4" eventType="touchUpInside" id="fbL-Hz-4nQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="m5F-7j-2xh" firstAttribute="trailing" secondItem="eng-3Y-rhz" secondAttribute="trailing" id="2Df-C6-6NM"/>
                             <constraint firstItem="eng-3Y-rhz" firstAttribute="trailing" secondItem="xqy-o6-q1M" secondAttribute="trailing" id="5Ld-he-kN6"/>
                             <constraint firstItem="eng-3Y-rhz" firstAttribute="leading" secondItem="xqy-o6-q1M" secondAttribute="leading" id="7w9-zZ-auq"/>
                             <constraint firstItem="41N-qa-ejc" firstAttribute="trailing" secondItem="xqy-o6-q1M" secondAttribute="trailing" constant="16" id="Dkb-Zi-ZM0"/>
                             <constraint firstItem="41N-qa-ejc" firstAttribute="bottom" secondItem="xqy-o6-q1M" secondAttribute="bottom" constant="20" id="IKm-IQ-sGn"/>
-                            <constraint firstItem="Amz-DG-rNr" firstAttribute="leading" secondItem="41N-qa-ejc" secondAttribute="leading" constant="40" id="WqW-d5-zkw"/>
-                            <constraint firstItem="Amz-DG-rNr" firstAttribute="top" secondItem="41N-qa-ejc" secondAttribute="top" constant="20" id="Xvf-wa-NaD"/>
-                            <constraint firstItem="xqy-o6-q1M" firstAttribute="top" secondItem="Amz-DG-rNr" secondAttribute="bottom" constant="20" id="c3c-HC-Szd"/>
+                            <constraint firstItem="xqy-o6-q1M" firstAttribute="top" secondItem="tcj-OQ-aJL" secondAttribute="bottom" constant="20" id="IpF-AN-XqR"/>
+                            <constraint firstItem="eng-3Y-rhz" firstAttribute="leading" secondItem="tcj-OQ-aJL" secondAttribute="leading" id="TMA-qK-k2x"/>
+                            <constraint firstItem="m5F-7j-2xh" firstAttribute="centerY" secondItem="tcj-OQ-aJL" secondAttribute="centerY" id="XGa-pX-2uf"/>
                             <constraint firstItem="xqy-o6-q1M" firstAttribute="leading" secondItem="41N-qa-ejc" secondAttribute="leading" constant="16" id="g4j-nm-4Tv"/>
                             <constraint firstItem="eng-3Y-rhz" firstAttribute="top" secondItem="xqy-o6-q1M" secondAttribute="top" id="h1J-Dj-YMU"/>
                             <constraint firstItem="eng-3Y-rhz" firstAttribute="bottom" secondItem="xqy-o6-q1M" secondAttribute="bottom" id="kYL-gh-Vfi"/>
-                            <constraint firstItem="41N-qa-ejc" firstAttribute="trailing" secondItem="Amz-DG-rNr" secondAttribute="trailing" constant="40" id="mT6-xh-Drp"/>
+                            <constraint firstItem="tcj-OQ-aJL" firstAttribute="top" secondItem="41N-qa-ejc" secondAttribute="top" constant="12" id="wlJ-RR-CUL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="41N-qa-ejc"/>
                     </view>
                     <connections>
                         <outlet property="expensesContainerView" destination="eng-3Y-rhz" id="CBT-gw-yVu"/>
                         <outlet property="incomeContainerView" destination="xqy-o6-q1M" id="csd-XX-aQ2"/>
-                        <outlet property="segmentControl" destination="Amz-DG-rNr" id="fQs-B1-Mx1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgD-00-WiT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -324,11 +332,11 @@
             <objects>
                 <viewController storyboardIdentifier="IncomeViewController" id="r0k-HP-bPt" customClass="IncomeViewController" customModule="eTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zyJ-JP-b5n">
-                        <rect key="frame" x="0.0" y="0.0" width="382" height="727"/>
+                        <rect key="frame" x="0.0" y="0.0" width="382" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DB3-q9-Pl0">
-                                <rect key="frame" x="0.0" y="0.0" width="382" height="727"/>
+                                <rect key="frame" x="0.0" y="0.0" width="382" height="729"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -477,11 +485,11 @@
             <objects>
                 <viewController storyboardIdentifier="ExpensesViewController" id="0tY-SW-HZi" customClass="ExpensesViewController" customModule="eTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OnI-a2-i1l">
-                        <rect key="frame" x="0.0" y="0.0" width="382" height="727"/>
+                        <rect key="frame" x="0.0" y="0.0" width="382" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yyA-yD-USz">
-                                <rect key="frame" x="0.0" y="0.0" width="382" height="727"/>
+                                <rect key="frame" x="0.0" y="0.0" width="382" height="729"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>

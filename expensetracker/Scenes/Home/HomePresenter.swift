@@ -14,12 +14,19 @@ protocol HomeViewInput: class {
 }
 
 protocol HomeViewOutput: class {
+    func signOut()
 }
 
-class HomePresenter: HomeViewOutput {
+class HomePresenter {
     weak var view: HomeViewInput?
     
     init(view: HomeViewInput) {
         self.view = view
+    }
+}
+
+extension HomePresenter: HomeViewOutput {
+    func signOut() {
+        Utility.signOut(parentVC: (self.view as? UIViewController))
     }
 }

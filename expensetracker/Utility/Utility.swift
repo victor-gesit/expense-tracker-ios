@@ -65,6 +65,20 @@ class Utility {
         HomeViewController.makeRootViewController(storyboard: .Main)
     }
     
+    static func signOut(parentVC: UIViewController?) {
+        let alertController = UIAlertController(title: "Sign out", message: "You will be signed out of the application.", preferredStyle: .alert)
+        let signoutAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+            UserDefaults.standard.signedInUser = nil
+            UserDefaults.standard.authToken = nil
+            LoginViewController.makeRootViewController(storyboard: .Main)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(signoutAction)
+        alertController.addAction(cancelAction)
+        
+        parentVC?.present(alertController, animated: true, completion: nil)
+    }
+    
     static func groupExpensesByCategories(_ expenses: [Expense]) -> [ExpenseCategory] {
         var categories: [ExpenseCategory] = ExpenseCategory.inbuiltCategories
         ExpenseCategory.allCategoriesExpense = 0

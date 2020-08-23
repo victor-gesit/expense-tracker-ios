@@ -110,18 +110,18 @@ extension ExpensesViewPresenter: UITableViewDataSource {
 extension ExpensesViewPresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == expenseCategories.count {
-            let addExpenseVC = AddExpenseViewController.instantiate(fromAppStoryboard: .Main)
-            addExpenseVC.category = ExpenseCategory(expenses: [], category: nil)
-            addExpenseVC.delegate = self
-            (self.view as? UIViewController)?.present(addExpenseVC, animated: true)
+            openExpenseAdder(with: ExpenseCategory(expenses: [], category: nil))
             return
         }
     
-        if expenseCategories[indexPath.row].expenses.isEmpty { return }
+        if expenseCategories[indexPath.row].expenses.isEmpty {
+            openExpenseAdder(with: expenseCategories[indexPath.row])
+            return
+        }
         self.selectedRowIndex = self.selectedRowIndex == indexPath.row ? nil : indexPath.row
         tableView.reloadRows(at: tableView.indexPathsForVisibleRows ?? [], with: .automatic)
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let index = selectedRowIndex, index == indexPath.row {
             return UITableView.automaticDimension

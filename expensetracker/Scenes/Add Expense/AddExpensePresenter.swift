@@ -27,6 +27,7 @@ protocol AddExpenseViewInput: class {
 
 protocol AddExpenseOutput: class {
     func submitExpense()
+    func viewDidLayoutSubviews()
     func viewDidLoad()
 }
 
@@ -68,6 +69,10 @@ class AddExpensePresenter {
 extension AddExpensePresenter: AddExpenseOutput {
     func viewDidLoad() {
         setupView()
+    }
+    
+    func viewDidLayoutSubviews() {
+        view?.titleContainerView.addHorizontalGradient(colorOne: #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1), colorTwo: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1), endPointX: 1)
     }
     
     func submitExpense() {

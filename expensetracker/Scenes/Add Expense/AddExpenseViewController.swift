@@ -17,6 +17,9 @@ class AddExpenseViewController: BaseViewController, AddExpenseViewInput {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var titleContainerView: UIView!
+    @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var inputStackView: UIStackView!
+    @IBOutlet weak var pageTitleLabel: UILabel!
     
     weak var delegate: AddExpenseDelegate?
     var presenter: AddExpenseOutput?

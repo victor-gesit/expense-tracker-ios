@@ -40,6 +40,7 @@ class Utility {
     
     static func groupExpensesByCategories(_ expenses: [Expense]) -> [ExpenseCategory] {
         var categories: [ExpenseCategory] = ExpenseCategory.inbuiltCategories
+        ExpenseCategory.allCategoriesExpense = 0
         for expense in expenses {
             if let category = categories.first(where: { (expenseCategory) -> Bool in
                 expenseCategory.category?.lowercased() == expense.category.lowercased()

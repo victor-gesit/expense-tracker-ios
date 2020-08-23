@@ -10,7 +10,7 @@
         <!--Signup View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="SignupViewController" id="BYZ-38-t0r" customClass="SignupViewController" customModule="expensetracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignupViewController" id="BYZ-38-t0r" customClass="SignupViewController" customModule="eTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,7 +145,7 @@
         <!--Home View Controller-->
         <scene sceneID="kNL-b8-hxB">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="hUa-Up-us4" customClass="HomeViewController" customModule="expensetracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="hUa-Up-us4" customClass="HomeViewController" customModule="eTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F8O-Ng-FPg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,7 +198,7 @@
         <!--Login View Controller-->
         <scene sceneID="iVd-LC-dt8">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="v0P-Zx-G1q" customClass="LoginViewController" customModule="expensetracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="v0P-Zx-G1q" customClass="LoginViewController" customModule="eTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PI2-H1-nyw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -321,7 +321,7 @@
         <!--Income View Controller-->
         <scene sceneID="51x-Wp-exT">
             <objects>
-                <viewController storyboardIdentifier="IncomeViewController" id="r0k-HP-bPt" customClass="IncomeViewController" customModule="expensetracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IncomeViewController" id="r0k-HP-bPt" customClass="IncomeViewController" customModule="eTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zyJ-JP-b5n">
                         <rect key="frame" x="0.0" y="0.0" width="382" height="727"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -361,33 +361,49 @@
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Expense" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8d-oM-VZI">
-                                <rect key="frame" x="20" y="64" width="131" height="28"/>
+                                <rect key="frame" x="20" y="64" width="131" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" red="0.043137254899999998" green="0.19215686269999999" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WzV-an-Vqc">
-                                <rect key="frame" x="20" y="172" width="374" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="HjG-BM-n00"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qFi-it-Ga2">
-                                <rect key="frame" x="20" y="242" width="374" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="NJv-xt-AJA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="j4J-VM-TTZ">
+                                <rect key="frame" x="20" y="171.5" width="374" height="190"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category (e.g. Vacation)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hJc-xl-blk">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Huc-nd-T7b"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WzV-an-Vqc">
+                                        <rect key="frame" x="0.0" y="70" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="HjG-BM-n00"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qFi-it-Ga2">
+                                        <rect key="frame" x="0.0" y="140" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="NJv-xt-AJA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rz8-a8-fK6">
-                                <rect key="frame" x="20" y="100" width="374" height="32"/>
+                                <rect key="frame" x="20" y="99.5" width="374" height="32"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="rTL-gX-7U6"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mf-Xi-Ahb">
-                                <rect key="frame" x="182" y="332" width="50" height="50"/>
+                                <rect key="frame" x="182" y="401.5" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="8VX-qx-9Gx"/>
                                     <constraint firstAttribute="height" constant="50" id="YGA-u9-gSP"/>
@@ -399,14 +415,14 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="travel" translatesAutoresizingMaskIntoConstraints="NO" id="JoH-YQ-y5e">
-                                <rect key="frame" x="40" y="110" width="12" height="12"/>
+                                <rect key="frame" x="40" y="109.5" width="12" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="12" id="ePp-XE-XlL"/>
                                     <constraint firstAttribute="height" constant="12" id="zGf-3J-5Gn"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ezz-8z-yOB">
-                                <rect key="frame" x="64" y="105.5" width="150" height="21"/>
+                                <rect key="frame" x="64" y="105.5" width="150" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="CAV-3y-A8r"/>
                                 </constraints>
@@ -417,21 +433,17 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="qFi-it-Ga2" firstAttribute="trailing" secondItem="WzV-an-Vqc" secondAttribute="trailing" id="2Nn-Ab-3yd"/>
-                            <constraint firstItem="qFi-it-Ga2" firstAttribute="leading" secondItem="WzV-an-Vqc" secondAttribute="leading" id="8vz-K1-RCR"/>
-                            <constraint firstItem="1mf-Xi-Ahb" firstAttribute="top" secondItem="qFi-it-Ga2" secondAttribute="bottom" constant="40" id="AdX-re-yma"/>
-                            <constraint firstItem="WzV-an-Vqc" firstAttribute="leading" secondItem="PAd-G3-bWk" secondAttribute="leading" constant="20" id="DVW-pY-kz9"/>
+                            <constraint firstItem="j4J-VM-TTZ" firstAttribute="top" secondItem="rz8-a8-fK6" secondAttribute="bottom" constant="40" id="1eo-Th-nwk"/>
                             <constraint firstItem="PAd-G3-bWk" firstAttribute="trailing" secondItem="rz8-a8-fK6" secondAttribute="trailing" constant="20" id="Dyq-uO-CiV"/>
                             <constraint firstItem="1mf-Xi-Ahb" firstAttribute="centerX" secondItem="WqQ-VE-b40" secondAttribute="centerX" id="Jbc-bc-x59"/>
                             <constraint firstItem="Mqh-jt-EDA" firstAttribute="top" secondItem="PAd-G3-bWk" secondAttribute="top" constant="20" id="KdJ-2q-Jux"/>
                             <constraint firstItem="rz8-a8-fK6" firstAttribute="leading" secondItem="PAd-G3-bWk" secondAttribute="leading" constant="20" id="Kzt-vu-jKX"/>
-                            <constraint firstItem="WzV-an-Vqc" firstAttribute="top" secondItem="rz8-a8-fK6" secondAttribute="bottom" constant="40" id="VDB-GO-qJb"/>
+                            <constraint firstItem="1mf-Xi-Ahb" firstAttribute="top" secondItem="j4J-VM-TTZ" secondAttribute="bottom" constant="40" id="UdA-Yi-zgp"/>
                             <constraint firstItem="ezz-8z-yOB" firstAttribute="leading" secondItem="JoH-YQ-y5e" secondAttribute="trailing" constant="12" id="Wm4-sb-rs5"/>
-                            <constraint firstItem="PAd-G3-bWk" firstAttribute="trailing" secondItem="WzV-an-Vqc" secondAttribute="trailing" constant="20" id="XdQ-a7-O1Z"/>
-                            <constraint firstItem="qFi-it-Ga2" firstAttribute="top" secondItem="WzV-an-Vqc" secondAttribute="bottom" constant="20" id="byt-rV-6bf"/>
+                            <constraint firstItem="PAd-G3-bWk" firstAttribute="trailing" secondItem="j4J-VM-TTZ" secondAttribute="trailing" constant="20" id="b32-o1-kBi"/>
                             <constraint firstItem="PAd-G3-bWk" firstAttribute="trailing" secondItem="Mqh-jt-EDA" secondAttribute="trailing" constant="20" id="ezZ-md-4Y6"/>
                             <constraint firstItem="b8d-oM-VZI" firstAttribute="leading" secondItem="PAd-G3-bWk" secondAttribute="leading" constant="20" id="frg-zE-XPw"/>
-                            <constraint firstItem="WzV-an-Vqc" firstAttribute="top" secondItem="b8d-oM-VZI" secondAttribute="bottom" constant="80" id="khv-VK-fd8"/>
+                            <constraint firstItem="j4J-VM-TTZ" firstAttribute="leading" secondItem="PAd-G3-bWk" secondAttribute="leading" constant="20" id="ga3-1o-QMk"/>
                             <constraint firstItem="rz8-a8-fK6" firstAttribute="top" secondItem="b8d-oM-VZI" secondAttribute="bottom" constant="8" id="l0W-br-yLW"/>
                             <constraint firstItem="b8d-oM-VZI" firstAttribute="top" secondItem="PAd-G3-bWk" secondAttribute="top" constant="20" id="vR3-Z4-Ip3"/>
                             <constraint firstItem="JoH-YQ-y5e" firstAttribute="centerY" secondItem="rz8-a8-fK6" secondAttribute="centerY" id="vY5-5f-hXD"/>
@@ -445,19 +457,22 @@
                         <outlet property="amountTextField" destination="WzV-an-Vqc" id="yOy-b2-hLq"/>
                         <outlet property="categoryIcon" destination="JoH-YQ-y5e" id="MPT-nh-TEn"/>
                         <outlet property="categoryLabel" destination="ezz-8z-yOB" id="Ddq-4g-VHz"/>
+                        <outlet property="categoryTextField" destination="hJc-xl-blk" id="ZV7-m5-jLg"/>
                         <outlet property="descriptionTextField" destination="qFi-it-Ga2" id="jKo-ae-LvS"/>
+                        <outlet property="inputStackView" destination="j4J-VM-TTZ" id="QVP-zD-xVe"/>
+                        <outlet property="pageTitleLabel" destination="b8d-oM-VZI" id="V6x-eO-2x0"/>
                         <outlet property="submitButton" destination="1mf-Xi-Ahb" id="3ba-lx-RZ3"/>
                         <outlet property="titleContainerView" destination="rz8-a8-fK6" id="Xes-G2-6aw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tWA-78-eMq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100.00000000000001" y="2215.8482142857142"/>
+            <point key="canvasLocation" x="125" y="2196"/>
         </scene>
         <!--Expenses View Controller-->
         <scene sceneID="BBP-fm-883">
             <objects>
-                <viewController storyboardIdentifier="ExpensesViewController" id="0tY-SW-HZi" customClass="ExpensesViewController" customModule="expensetracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExpensesViewController" id="0tY-SW-HZi" customClass="ExpensesViewController" customModule="eTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OnI-a2-i1l">
                         <rect key="frame" x="0.0" y="0.0" width="382" height="727"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

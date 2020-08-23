@@ -17,9 +17,12 @@ protocol AddExpenseViewInput: class {
     var descriptionTextField: UITextField! { get set }
     var submitButton: UIButton! { get set }
     var activityIndicator: UIActivityIndicatorView! { get set }
+    var categoryTextField: UITextField! { get set }
     var titleContainerView: UIView! { get set }
     var category: ExpenseCategory? { get set }
     var delegate: AddExpenseDelegate? { get set }
+    var inputStackView: UIStackView! { get set }
+    var pageTitleLabel: UILabel! { get set }
 }
 
 protocol AddExpenseOutput: class {
@@ -46,6 +49,13 @@ class AddExpensePresenter {
         view?.categoryIcon.image = view?.category?.inbuiltType?.icon ?? ExpenseType.defaultIcon
         view?.categoryLabel.text = view?.category?.category
         view?.titleContainerView.addHorizontalGradient(colorOne: #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1), colorTwo: #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1), endPointX: 1)
+        view?.pageTitleLabel.text = view?.category?.category == nil
+            ? String.PageTitle.addCategory : String.PageTitle.addExpense
+        
+        if let _ = view?.category?.category,
+            let categoryInputField = view?.categoryTextField {
+            view?.inputStackView.removeArrangedSubview(categoryInputField)
+        }
     }
     
     private func dismissView() {
@@ -67,7 +77,7 @@ extension AddExpensePresenter: AddExpenseOutput {
     private func validateAndSubmit() {
         guard let view = self.view else { return }
         if let amount = view.amountTextField.text, !amount.isEmpty,
-            let category = view.category?.category {
+            let category = view.category?.category ?? view.categoryTextField.text {
             guard let amount = Double(amount) else {
                 Utility.showError(message: String.ErrorMessages.invalidAmount, view: self.parentView)
                 return

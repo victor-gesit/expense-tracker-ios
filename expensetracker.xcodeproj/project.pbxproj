@@ -49,6 +49,7 @@
 		0D4B18DD24F1DF06005A056D /* AddCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D4B18DB24F1DF06005A056D /* AddCategoryTableViewCell.xib */; };
 		0D4B18E024F1F52E005A056D /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18DF24F1F52E005A056D /* AddExpenseViewController.swift */; };
 		0D4B18E224F25E83005A056D /* AddExpensePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18E124F25E83005A056D /* AddExpensePresenter.swift */; };
+		0D4B18E724F2B10E005A056D /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18E624F2B10E005A056D /* ExpenseCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		0D4B18DB24F1DF06005A056D /* AddCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		0D4B18DF24F1F52E005A056D /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		0D4B18E124F25E83005A056D /* AddExpensePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensePresenter.swift; sourceTree = "<group>"; };
+		0D4B18E624F2B10E005A056D /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 				0D34748724EF2EC5003572B9 /* User.swift */,
 				0D34748924EF2ECC003572B9 /* Expense.swift */,
 				0D00080B24F06DEE00AAD35F /* ExpenseType.swift */,
+				0D4B18E624F2B10E005A056D /* ExpenseCategory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 			files = (
 				0D34748124EF1937003572B9 /* ExpenseTrackerServer.swift in Sources */,
 				0D16AF3924EF0F8200FB04D6 /* LoginViewController.swift in Sources */,
+				0D4B18E724F2B10E005A056D /* ExpenseCategory.swift in Sources */,
 				0D0A98AF24F041B10057A239 /* UIView+Extensions.swift in Sources */,
 				0D16AF2724EE78F100FB04D6 /* ViewController.swift in Sources */,
 				0D16AF3B24EF0F8D00FB04D6 /* SignupViewController.swift in Sources */,

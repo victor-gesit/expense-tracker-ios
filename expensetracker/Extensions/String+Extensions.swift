@@ -34,4 +34,9 @@ extension String {
         static let unknownError = "Unknown Error"
         static let noInternetConnection = "Cannot connect to the internet"
     }
+    
+    struct PageTitle {
+        static let addCategory = "Add Expense Category"
+        static let addExpense = "Add Expense"
+    }
 }

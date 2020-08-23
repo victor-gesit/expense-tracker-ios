@@ -22,6 +22,7 @@ extension Double {
     func toPercentageString() -> String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent
+        formatter.maximumFractionDigits = 1
         let percentageString = formatter.string(from: NSNumber(value: self))
         return percentageString
     }

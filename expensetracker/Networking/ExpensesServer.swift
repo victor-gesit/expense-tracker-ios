@@ -16,7 +16,6 @@ extension ExpenseAppServer {
             "amount": amount
         ]
         makeAPICall(route: .createExpense, method: .post, paramaters: parameters, type: ExpenseCreateResponse.self) { (data, response, error, result) in
-            
             completion(result?.expense, result?.success ?? false ? nil : ExpenseAppErrors.getExpensesFailed(result?.message))
         }
     }

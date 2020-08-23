@@ -53,14 +53,17 @@ extension ExpensesViewPresenter: ExpensesViewOutput {
         fetchExpenses()
     }
     
+    @objc
     func fetchExpenses() {
-        
         server.getExpenses {[weak self] (result, error) in
             guard let expenses = result else {
                 Utility.showError(message: error?.localizedDescription, view: self?.parentView)
                 return
             }
             self?.expenses = expenses
+            DispatchQueue.main.async {
+                self?.view?.tableView.refreshControl?.endRefreshing()
+            }
         }
     }
     
@@ -71,6 +74,8 @@ extension ExpensesViewPresenter: ExpensesViewOutput {
         view?.tableView.register(UINib(nibName: ExpenseTableViewCell.NIB_NAME, bundle: .main), forCellReuseIdentifier: Constants.expenseCellId)
         view?.tableView.register(UINib(nibName: ExpandedExpenseTableViewCell.NIB_NAME, bundle: .main), forCellReuseIdentifier: Constants.expandedExpenseCellId)
         view?.tableView.register(UINib(nibName: AddCategoryTableViewCell.NIB_NAME, bundle: .main), forCellReuseIdentifier: Constants.addExpenseCategoryCellId)
+        view?.tableView.refreshControl = UIRefreshControl()
+        view?.tableView.refreshControl?.addTarget(self, action: #selector(fetchExpenses), for: .valueChanged)
     }
 }
 
@@ -104,6 +109,8 @@ extension ExpensesViewPresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == expenseCategories.count {
             let addExpenseVC = AddExpenseViewController.instantiate(fromAppStoryboard: .Main)
+            addExpenseVC.category = ExpenseCategory(expenses: [], category: nil)
+            addExpenseVC.delegate = self
             (self.view as? UIViewController)?.present(addExpenseVC, animated: true)
             return
         }
@@ -149,5 +156,6 @@ extension ExpensesViewPresenter: ExpenseTableCellDelegate {
 extension ExpensesViewPresenter: AddExpenseDelegate {
     func didCreateExpense(expense: Expense) {
         self.expenses.append(expense)
+        self.view?.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
     }
 }

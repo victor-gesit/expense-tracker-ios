@@ -48,10 +48,11 @@ extension ExpensesViewPresenter: ExpensesViewOutput {
                 Utility.toggleOverlayingLoader(show: false)
                 self?.view?.tableView.refreshControl?.endRefreshing()
             }
-            guard let _ = result else {
+            guard let expenses = result else {
                 Utility.showError(message: error?.localizedDescription, view: self?.parentView)
                 return
             }
+            self?.expenses = expenses
         }
     }
     

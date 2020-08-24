@@ -19,6 +19,22 @@ class LoginPresenter: NSObject {
         self.parentView = view.view
     }
     
+    private func toggleButton(enable: Bool) {
+        self.view?.continueButton.isEnabled = enable
+        enable ? self.view?.activityIndicator.stopAnimating() : self.view?.activityIndicator.startAnimating()
+    }
+}
+
+extension LoginPresenter: LoginOutput {
+    func goToSignup() {
+        let loginVC = SignupViewController.instantiate(fromAppStoryboard: .Main)
+        (self.view as? UIViewController)?.navigationController?.pushViewController(loginVC, animated: true)
+    }
+    
+    func signIn() {
+        validateAndSignIn()
+    }
+    
     private func validateAndSignIn() {
         guard let view = self.view else { return }
         if let email = view.emailTextField.text, !email.isEmpty,
@@ -45,21 +61,5 @@ class LoginPresenter: NSObject {
         } else {
             Utility.showError(message: String.ErrorMessages.missingFields, view: self.parentView)
         }
-    }
-    
-    private func toggleButton(enable: Bool) {
-        self.view?.continueButton.isEnabled = enable
-        enable ? self.view?.activityIndicator.stopAnimating() : self.view?.activityIndicator.startAnimating()
-    }
-}
-
-extension LoginPresenter: LoginOutput {
-    func goToSignup() {
-        let loginVC = SignupViewController.instantiate(fromAppStoryboard: .Main)
-        (self.view as? UIViewController)?.navigationController?.pushViewController(loginVC, animated: true)
-    }
-    
-    func signIn() {
-        validateAndSignIn()
     }
 }

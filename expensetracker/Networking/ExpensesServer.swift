@@ -15,8 +15,8 @@ extension ExpenseAppServer {
             "purpose": purpose,
             "amount": amount
         ]
-        makeAPICall(route: .createExpense, method: .post, paramaters: parameters, type: ExpenseCreateResponse.self) { (data, response, error, result) in
-            completion(result?.expense, result?.success ?? false ? nil : ExpenseAppErrors.getExpensesFailed(result?.message))
+        makeAPICall(route: .createExpense, method: .post, paramaters: parameters, type: ExpenseCreateResponse.self) { (error, data, result) in
+            completion(result?.expense, result?.success ?? false ? nil : error ?? ExpenseAppErrors.createExpenseFailed(result?.message))
         }
     }
     
@@ -27,8 +27,8 @@ extension ExpenseAppServer {
     }
     
     func getExpenses(completion: @escaping ([Expense]?, Error?) -> Void) {
-        makeAPICall(route: .readExpenses, method: .get, type: ExpenseFetchResponse.self) { (data, response, error, result) in
-            completion(result?.expenses, result?.success ?? false ? nil : ExpenseAppErrors.getExpensesFailed(result?.message))
+        makeAPICall(route: .readExpenses, method: .get, type: ExpenseFetchResponse.self) { (error, data, result) in
+            completion(result?.expenses, result?.success ?? false ? nil : error ?? ExpenseAppErrors.getExpensesFailed(result?.message))
         }
     }
 }

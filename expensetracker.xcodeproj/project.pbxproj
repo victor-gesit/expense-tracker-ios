@@ -56,6 +56,7 @@
 		0D9D229924F3C4D200EB075E /* ExpensesPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D229824F3C4D200EB075E /* ExpensesPresenterProtocols.swift */; };
 		0D9D229B24F3C50300EB075E /* SignupPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D229A24F3C50300EB075E /* SignupPresenterProtocols.swift */; };
 		0D9D229D24F3C51F00EB075E /* LoginPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D229C24F3C51F00EB075E /* LoginPresenterProtocols.swift */; };
+		0D9D229F24F3FDB200EB075E /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D229E24F3FDB200EB075E /* CGFloat+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +111,7 @@
 		0D9D229824F3C4D200EB075E /* ExpensesPresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesPresenterProtocols.swift; sourceTree = "<group>"; };
 		0D9D229A24F3C50300EB075E /* SignupPresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenterProtocols.swift; sourceTree = "<group>"; };
 		0D9D229C24F3C51F00EB075E /* LoginPresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterProtocols.swift; sourceTree = "<group>"; };
+		0D9D229E24F3FDB200EB075E /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				0D0A98AE24F041B10057A239 /* UIView+Extensions.swift */,
 				0D4B18CE24F170FF005A056D /* UserDefaults+Extensions.swift */,
 				0D12E4D024F2C833005229B7 /* Int+Extensions.swift */,
+				0D9D229E24F3FDB200EB075E /* CGFloat+Extensions.swift */,
 				0D4B18D624F1B9C8005A056D /* Double+Extensions.swift */,
 			);
 			path = Extensions;
@@ -380,6 +383,7 @@
 				0D4B18E724F2B10E005A056D /* ExpenseCategory.swift in Sources */,
 				0D0A98AF24F041B10057A239 /* UIView+Extensions.swift in Sources */,
 				0D16AF3B24EF0F8D00FB04D6 /* SignupViewController.swift in Sources */,
+				0D9D229F24F3FDB200EB075E /* CGFloat+Extensions.swift in Sources */,
 				0D12E4D124F2C833005229B7 /* Int+Extensions.swift in Sources */,
 				0D34748324EF1D48003572B9 /* Endpoints.swift in Sources */,
 				0D00080C24F06DEE00AAD35F /* ExpenseType.swift in Sources */,

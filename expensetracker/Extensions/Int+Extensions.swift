@@ -13,4 +13,6 @@ extension Int {
         static let horizontalLayerGradientTag: Int = 888
         static let loaderOverlayViewTag: Int = 999
     }
+    
+    static let minimumPasswordLength: Int = 8
 }

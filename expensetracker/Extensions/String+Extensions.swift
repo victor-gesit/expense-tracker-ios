@@ -17,7 +17,7 @@ extension String {
     }
     
     func isValidPasswordText() -> Bool {
-        return self.count >= 2
+        return self.count >= Int.minimumPasswordLength
     }
     
     static var emptyString: String {

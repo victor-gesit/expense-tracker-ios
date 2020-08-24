@@ -36,6 +36,7 @@ class ExpensesViewPresenter: NSObject {
 extension ExpensesViewPresenter: ExpensesViewOutput {
     func viewDidLoad() {
         setupTableView()
+        expenses = []
         fetchExpenses()
         Utility.toggleOverlayingLoader(show: true)
     }
@@ -47,11 +48,10 @@ extension ExpensesViewPresenter: ExpensesViewOutput {
                 Utility.toggleOverlayingLoader(show: false)
                 self?.view?.tableView.refreshControl?.endRefreshing()
             }
-            guard let expenses = result else {
+            guard let _ = result else {
                 Utility.showError(message: error?.localizedDescription, view: self?.parentView)
                 return
             }
-            self?.expenses = expenses
         }
     }
     
@@ -113,7 +113,7 @@ extension ExpensesViewPresenter: UITableViewDelegate {
             return UITableView.automaticDimension
         }
         
-        return 70
+        return CGFloat.TableCellHeights.expandedExpenseCell
     }
 }
 

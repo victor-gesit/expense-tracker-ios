@@ -15,14 +15,14 @@ extension ExpenseAppServer {
             "email": email,
             "password": password
         ]
-        makeAPICall(route: .signup, method: .post, paramaters: parameters, type: UserAuthResponse.self) { (data, response, error, result) in
+        makeAPICall(route: .signup, method: .post, paramaters: parameters, type: UserAuthResponse.self) { (error, data, result) in
             if let success = result?.success, success {
                 self.saveSignedInUser(user: result?.user, token: result?.token)
                 DispatchQueue.main.async {
                     completion(result?.user, nil)
                 }
             } else {
-                completion(nil, ExpenseAppErrors.loginFailed(result?.errors?.first ?? result?.message))
+                completion(nil, error ?? ExpenseAppErrors.loginFailed(result?.errors?.first ?? result?.message))
             }
         }
     }
@@ -32,14 +32,14 @@ extension ExpenseAppServer {
             "email": email,
             "password": password
         ]
-        makeAPICall(route: .login, method: .post, paramaters: parameters, type: UserAuthResponse.self) { (data, response, error, result) in
+        makeAPICall(route: .login, method: .post, paramaters: parameters, type: UserAuthResponse.self) { (error, data, result) in
             if let success = result?.success, success {
                 self.saveSignedInUser(user: result?.user, token: result?.token)
                 DispatchQueue.main.async {
                     completion(result?.user, nil)
                 }
             } else {
-                completion(nil, ExpenseAppErrors.loginFailed(result?.errors?.first ?? result?.message))
+                completion(nil, error ?? ExpenseAppErrors.loginFailed(result?.errors?.first ?? result?.message))
             }
         }
     }

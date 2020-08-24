@@ -13,15 +13,15 @@ class ExpenseAppServer {
 }
 
 extension ExpenseAppServer {
-    func makeAPICall<T: Codable>(route: Route, method: Method, paramaters: [String: Any]? = nil, type: T.Type, headerParameters: [String: String]? = nil, requiresToken: Bool = false, _ completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?, _ result: T? ) -> Void ) {
+    func makeAPICall<T: Codable>(route: Route, method: Method, paramaters: [String: Any]? = nil, type: T.Type, headerParameters: [String: String]? = nil, _ completion: @escaping (Error?, Data?, _ result: T? ) -> Void ) {
         
         guard let request = createRequest(route: route, method: method, parameters:paramaters, headerParameters: headerParameters) else {
-            completion(nil, nil, ExpenseAppErrors.unknownError, nil)
+            completion(ExpenseAppErrors.unknownError, nil, nil)
             return
         }
         URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
             DispatchQueue.main.async {
-                completion(data, response, error, self?.makeResponseFrom(data: data, type: T.self))
+                completion(error, data, self?.makeResponseFrom(data: data, type: T.self))
             }
         }.resume()
     }

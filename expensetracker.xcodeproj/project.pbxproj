@@ -16,7 +16,6 @@
 		0D12E4D124F2C833005229B7 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D12E4D024F2C833005229B7 /* Int+Extensions.swift */; };
 		0D16AF2324EE78F100FB04D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF2224EE78F100FB04D6 /* AppDelegate.swift */; };
 		0D16AF2524EE78F100FB04D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF2424EE78F100FB04D6 /* SceneDelegate.swift */; };
-		0D16AF2724EE78F100FB04D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF2624EE78F100FB04D6 /* ViewController.swift */; };
 		0D16AF2A24EE78F100FB04D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D16AF2824EE78F100FB04D6 /* Main.storyboard */; };
 		0D16AF2C24EE78F600FB04D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D16AF2B24EE78F600FB04D6 /* Assets.xcassets */; };
 		0D16AF2F24EE78F600FB04D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D16AF2D24EE78F600FB04D6 /* LaunchScreen.storyboard */; };
@@ -27,7 +26,7 @@
 		0D16AF4124EF0FD400FB04D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4024EF0FD400FB04D6 /* HomeViewController.swift */; };
 		0D16AF4824EF12E000FB04D6 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4724EF12E000FB04D6 /* HomePresenter.swift */; };
 		0D16AF4A24EF12ED00FB04D6 /* IncomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4924EF12ED00FB04D6 /* IncomePresenter.swift */; };
-		0D16AF4C24EF12F500FB04D6 /* ExpensePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4B24EF12F500FB04D6 /* ExpensePresenter.swift */; };
+		0D16AF4C24EF12F500FB04D6 /* ExpensesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4B24EF12F500FB04D6 /* ExpensesPresenter.swift */; };
 		0D16AF4E24EF130000FB04D6 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4D24EF130000FB04D6 /* SignupPresenter.swift */; };
 		0D16AF5024EF130B00FB04D6 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16AF4F24EF130B00FB04D6 /* LoginPresenter.swift */; };
 		0D34748124EF1937003572B9 /* ExpenseTrackerServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34748024EF1937003572B9 /* ExpenseTrackerServer.swift */; };
@@ -51,6 +50,12 @@
 		0D4B18E024F1F52E005A056D /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18DF24F1F52E005A056D /* AddExpenseViewController.swift */; };
 		0D4B18E224F25E83005A056D /* AddExpensePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18E124F25E83005A056D /* AddExpensePresenter.swift */; };
 		0D4B18E724F2B10E005A056D /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B18E624F2B10E005A056D /* ExpenseCategory.swift */; };
+		0D9D229324F3C44700EB075E /* AddExpensePresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D229224F3C44700EB075E /* AddExpensePresenterProtocols.swift */; };
+		0D9D229524F3C45800EB075E /* HomePresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D229424F3C45800EB075E /* HomePresenterProtocols.swift */; };
+		0D9D229724F3C4B900EB075E /* IncomePresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D229624F3C4B900EB075E /* IncomePresenterProtocols.swift */; };
+		0D9D229924F3C4D200EB075E /* ExpensesPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D229824F3C4D200EB075E /* ExpensesPresenterProtocols.swift */; };
+		0D9D229B24F3C50300EB075E /* SignupPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D229A24F3C50300EB075E /* SignupPresenterProtocols.swift */; };
+		0D9D229D24F3C51F00EB075E /* LoginPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D229C24F3C51F00EB075E /* LoginPresenterProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +69,6 @@
 		0D16AF1F24EE78F100FB04D6 /* eTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D16AF2224EE78F100FB04D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D16AF2424EE78F100FB04D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0D16AF2624EE78F100FB04D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0D16AF2924EE78F100FB04D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D16AF2B24EE78F600FB04D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D16AF2E24EE78F600FB04D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,7 +80,7 @@
 		0D16AF4024EF0FD400FB04D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0D16AF4724EF12E000FB04D6 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		0D16AF4924EF12ED00FB04D6 /* IncomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomePresenter.swift; sourceTree = "<group>"; };
-		0D16AF4B24EF12F500FB04D6 /* ExpensePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePresenter.swift; sourceTree = "<group>"; };
+		0D16AF4B24EF12F500FB04D6 /* ExpensesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesPresenter.swift; sourceTree = "<group>"; };
 		0D16AF4D24EF130000FB04D6 /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
 		0D16AF4F24EF130B00FB04D6 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		0D34748024EF1937003572B9 /* ExpenseTrackerServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTrackerServer.swift; sourceTree = "<group>"; };
@@ -100,6 +104,12 @@
 		0D4B18DF24F1F52E005A056D /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		0D4B18E124F25E83005A056D /* AddExpensePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensePresenter.swift; sourceTree = "<group>"; };
 		0D4B18E624F2B10E005A056D /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
+		0D9D229224F3C44700EB075E /* AddExpensePresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensePresenterProtocols.swift; sourceTree = "<group>"; };
+		0D9D229424F3C45800EB075E /* HomePresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterProtocols.swift; sourceTree = "<group>"; };
+		0D9D229624F3C4B900EB075E /* IncomePresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomePresenterProtocols.swift; sourceTree = "<group>"; };
+		0D9D229824F3C4D200EB075E /* ExpensesPresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesPresenterProtocols.swift; sourceTree = "<group>"; };
+		0D9D229A24F3C50300EB075E /* SignupPresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenterProtocols.swift; sourceTree = "<group>"; };
+		0D9D229C24F3C51F00EB075E /* LoginPresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,16 +157,12 @@
 		0D16AF2124EE78F100FB04D6 /* expensetracker */ = {
 			isa = PBXGroup;
 			children = (
+				0D9D229024F3BD4400EB075E /* Resources */,
 				0D34749124EFD6D4003572B9 /* Utility */,
 				0D34748424EF1E1F003572B9 /* Models */,
 				0D34747F24EF1906003572B9 /* Networking */,
 				0D16AF3724EF0F4300FB04D6 /* Scenes */,
 				0D16AF3624EEFEC900FB04D6 /* Extensions */,
-				0D16AF2224EE78F100FB04D6 /* AppDelegate.swift */,
-				0D16AF2424EE78F100FB04D6 /* SceneDelegate.swift */,
-				0D16AF2624EE78F100FB04D6 /* ViewController.swift */,
-				0D16AF2B24EE78F600FB04D6 /* Assets.xcassets */,
-				0D16AF2D24EE78F600FB04D6 /* LaunchScreen.storyboard */,
 				0D16AF3024EE78F600FB04D6 /* Info.plist */,
 			);
 			path = expensetracker;
@@ -195,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				0D16AF3824EF0F8200FB04D6 /* LoginViewController.swift */,
+				0D9D229C24F3C51F00EB075E /* LoginPresenterProtocols.swift */,
 				0D16AF4F24EF130B00FB04D6 /* LoginPresenter.swift */,
 			);
 			path = Login;
@@ -204,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				0D16AF3A24EF0F8D00FB04D6 /* SignupViewController.swift */,
+				0D9D229A24F3C50300EB075E /* SignupPresenterProtocols.swift */,
 				0D16AF4D24EF130000FB04D6 /* SignupPresenter.swift */,
 			);
 			path = Signup;
@@ -214,7 +222,8 @@
 			children = (
 				0D0A98A524F020560057A239 /* Table Cells */,
 				0D16AF3C24EF0F9800FB04D6 /* ExpensesViewController.swift */,
-				0D16AF4B24EF12F500FB04D6 /* ExpensePresenter.swift */,
+				0D9D229824F3C4D200EB075E /* ExpensesPresenterProtocols.swift */,
+				0D16AF4B24EF12F500FB04D6 /* ExpensesPresenter.swift */,
 			);
 			path = Expenses;
 			sourceTree = "<group>";
@@ -224,6 +233,7 @@
 			children = (
 				0D16AF3E24EF0FA100FB04D6 /* IncomeViewController.swift */,
 				0D16AF4924EF12ED00FB04D6 /* IncomePresenter.swift */,
+				0D9D229624F3C4B900EB075E /* IncomePresenterProtocols.swift */,
 			);
 			path = Income;
 			sourceTree = "<group>";
@@ -233,6 +243,7 @@
 			children = (
 				0D16AF4024EF0FD400FB04D6 /* HomeViewController.swift */,
 				0D16AF4724EF12E000FB04D6 /* HomePresenter.swift */,
+				0D9D229424F3C45800EB075E /* HomePresenterProtocols.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -273,8 +284,20 @@
 			children = (
 				0D4B18DF24F1F52E005A056D /* AddExpenseViewController.swift */,
 				0D4B18E124F25E83005A056D /* AddExpensePresenter.swift */,
+				0D9D229224F3C44700EB075E /* AddExpensePresenterProtocols.swift */,
 			);
 			path = "Add Expense";
+			sourceTree = "<group>";
+		};
+		0D9D229024F3BD4400EB075E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0D16AF2B24EE78F600FB04D6 /* Assets.xcassets */,
+				0D16AF2224EE78F100FB04D6 /* AppDelegate.swift */,
+				0D16AF2424EE78F100FB04D6 /* SceneDelegate.swift */,
+				0D16AF2D24EE78F600FB04D6 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,7 +379,6 @@
 				0D16AF3924EF0F8200FB04D6 /* LoginViewController.swift in Sources */,
 				0D4B18E724F2B10E005A056D /* ExpenseCategory.swift in Sources */,
 				0D0A98AF24F041B10057A239 /* UIView+Extensions.swift in Sources */,
-				0D16AF2724EE78F100FB04D6 /* ViewController.swift in Sources */,
 				0D16AF3B24EF0F8D00FB04D6 /* SignupViewController.swift in Sources */,
 				0D12E4D124F2C833005229B7 /* Int+Extensions.swift in Sources */,
 				0D34748324EF1D48003572B9 /* Endpoints.swift in Sources */,
@@ -365,17 +387,21 @@
 				0D4B18D724F1B9C8005A056D /* Double+Extensions.swift in Sources */,
 				0D16AF4124EF0FD400FB04D6 /* HomeViewController.swift in Sources */,
 				0D4B18D524F1AC98005A056D /* Date+Extensions.swift in Sources */,
+				0D9D229524F3C45800EB075E /* HomePresenterProtocols.swift in Sources */,
 				0D0A98A824F020740057A239 /* ExpenseTableViewCell.swift in Sources */,
+				0D9D229D24F3C51F00EB075E /* LoginPresenterProtocols.swift in Sources */,
 				0D34748A24EF2ECC003572B9 /* Expense.swift in Sources */,
 				0D0A98AC24F020890057A239 /* ExpandedExpenseTableViewCell.swift in Sources */,
-				0D16AF4C24EF12F500FB04D6 /* ExpensePresenter.swift in Sources */,
+				0D16AF4C24EF12F500FB04D6 /* ExpensesPresenter.swift in Sources */,
 				0D4B18DC24F1DF06005A056D /* AddCategoryTableViewCell.swift in Sources */,
+				0D9D229B24F3C50300EB075E /* SignupPresenterProtocols.swift in Sources */,
 				0D34748824EF2EC5003572B9 /* User.swift in Sources */,
 				0D4B18E024F1F52E005A056D /* AddExpenseViewController.swift in Sources */,
 				0D4B18E224F25E83005A056D /* AddExpensePresenter.swift in Sources */,
 				0D34748624EF2A23003572B9 /* ExpenseAppErrors.swift in Sources */,
 				0D16AF2324EE78F100FB04D6 /* AppDelegate.swift in Sources */,
 				0D16AF3F24EF0FA100FB04D6 /* IncomeViewController.swift in Sources */,
+				0D9D229324F3C44700EB075E /* AddExpensePresenterProtocols.swift in Sources */,
 				0D34748E24EFCF2B003572B9 /* UIViewController+Extensions.swift in Sources */,
 				0D4B18CF24F170FF005A056D /* UserDefaults+Extensions.swift in Sources */,
 				0D4B18D124F178B5005A056D /* AuthServer.swift in Sources */,
@@ -384,9 +410,11 @@
 				0D16AF4824EF12E000FB04D6 /* HomePresenter.swift in Sources */,
 				0D34748C24EFCE9F003572B9 /* String+Extensions.swift in Sources */,
 				0D16AF5024EF130B00FB04D6 /* LoginPresenter.swift in Sources */,
+				0D9D229724F3C4B900EB075E /* IncomePresenterProtocols.swift in Sources */,
 				0D16AF4A24EF12ED00FB04D6 /* IncomePresenter.swift in Sources */,
 				0D16AF2524EE78F100FB04D6 /* SceneDelegate.swift in Sources */,
 				0D16AF4E24EF130000FB04D6 /* SignupPresenter.swift in Sources */,
+				0D9D229924F3C4D200EB075E /* ExpensesPresenterProtocols.swift in Sources */,
 				0D4B18CD24F09E85005A056D /* ExpenseItemView.swift in Sources */,
 				0D16AF3D24EF0F9800FB04D6 /* ExpensesViewController.swift in Sources */,
 			);

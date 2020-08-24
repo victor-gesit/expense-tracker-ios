@@ -1,5 +1,5 @@
 //
-//  ExpenseViewPresenter.swift
+//  ExpensesViewPresenter.swift
 //  expensetracker
 //
 //  Created by Victor Idongesit on 20/08/2020.
@@ -8,20 +8,6 @@
 
 import Foundation
 import UIKit
-
-protocol ExpensesViewInput: class {
-    var tableView: UITableView! { get set }
-    var view: UIView! { get set }
-}
-
-protocol ExpensesViewOutput: class {
-    func viewDidLoad()
-    func fetchExpenses()
-}
-
-protocol AddExpenseDelegate: class {
-    func didCreateExpense(expense: Expense)
-}
 
 class ExpensesViewPresenter: NSObject {
     weak var view: ExpensesViewInput?

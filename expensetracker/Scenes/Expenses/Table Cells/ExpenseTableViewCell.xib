@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gFH-yv-guo" firstAttribute="top" secondItem="gM3-Uk-MsC" secondAttribute="top" constant="5" id="5m5-zp-ugd"/>
                             <constraint firstItem="gFH-yv-guo" firstAttribute="leading" secondItem="gM3-Uk-MsC" secondAttribute="leading" id="GCy-Li-fnY"/>
@@ -77,6 +77,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="KJd-VS-J7c" firstAttribute="leading" secondItem="gFH-yv-guo" secondAttribute="leading" constant="56" id="6bX-MM-zod"/>
                     <constraint firstItem="oF2-6z-6yM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9rT-xT-ahc"/>
@@ -89,6 +90,7 @@
                     <constraint firstAttribute="bottom" secondItem="gM3-Uk-MsC" secondAttribute="bottom" constant="2" id="y9F-zG-Q8h"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="categoryIcon" destination="oF2-6z-6yM" id="DMJ-RW-b7j"/>

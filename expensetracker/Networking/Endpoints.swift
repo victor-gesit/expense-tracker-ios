@@ -23,9 +23,7 @@ enum Route: CustomStringConvertible {
                 return Constants.login
             case .signup:
                 return Constants.signup
-            case .readExpenses:
-                return Constants.expenses
-            case .updateExpense, .deleteExpense, .createExpense:
+            case .readExpenses, .updateExpense, .deleteExpense, .createExpense:
                 return Constants.expense
             }
         }
@@ -42,9 +40,7 @@ enum Method: String {
 struct Constants {
     static let baseURL = "https://victor-expenses-backend.herokuapp.com/api/"
     
-    
     static let login = Constants.baseURL + "signin"
     static let signup = Constants.baseURL + "signup"
-    static let expenses = Constants.baseURL + "expenses"
     static let expense = Constants.baseURL + "expense"
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 extension ExpenseAppServer {
-    func createExpense(category: String, purpose: String, amount: Double, completion: @escaping (Expense?, Error?) -> Void) {
+    func createExpense(category: String, purpose: String, amount: Double, completion: @escaping ExpenseCreationCompletionHandler) {
         let parameters: [String: Any] = [
             "category": category,
             "purpose": purpose,
@@ -26,7 +26,7 @@ extension ExpenseAppServer {
     func deleteExpense(expenseId: String) {
     }
     
-    func getExpenses(completion: @escaping ([Expense]?, Error?) -> Void) {
+    func getExpenses(completion: @escaping ExpensesFetchCompletionHandler) {
         makeAPICall(route: .readExpenses, method: .get, type: ExpenseFetchResponse.self) { (error, data, result) in
             completion(result?.expenses, result?.success ?? false ? nil : error ?? ExpenseAppErrors.getExpensesFailed(result?.message))
         }

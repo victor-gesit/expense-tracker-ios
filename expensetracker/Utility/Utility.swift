@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 class Utility {
-    static func showError(message: String?, view: UIView?) {
+    static func showNotification(message: String?, view: UIView?, isError: Bool = false, completion: MessageNotificationCompletionHandler = nil ) {
         guard let messageString = message, !messageString.isEmpty else { return }
         let errorView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 80))
-        errorView.backgroundColor = #colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1)
+        errorView.backgroundColor = isError ? #colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1) : #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
         
         let errorLabel = UILabel(frame: errorView.bounds)
         errorLabel.text = message
@@ -38,7 +38,7 @@ class Utility {
         guard let mainWindow = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else { return }
         if !show {
             let overlay = mainWindow.subviews.first(where: {$0.tag == Int.AppViewTags.loaderOverlayViewTag})
-            UIView.animate(withDuration: 0.1, delay: 1, options: [.curveEaseOut], animations: {
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseOut], animations: {
                 overlay?.alpha = 0
             }) { (_) in
                 overlay?.removeFromSuperview()
@@ -63,6 +63,14 @@ class Utility {
     
     static func goHome() {
         HomeViewController.makeRootViewController(storyboard: .Main)
+    }
+    
+    static func goToLogin() {
+        LoginViewController.makeRootViewController(storyboard: .Main)
+    }
+    
+    static func openPasswordReset() {
+        PasswordResetViewController.makeRootViewController(storyboard: .Main)
     }
     
     static func signOut(parentVC: UIViewController?) {

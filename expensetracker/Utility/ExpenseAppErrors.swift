@@ -13,6 +13,8 @@ enum ExpenseAppErrors: Error {
     case noNetwork
     case signupFailed(String?)
     case loginFailed(String?)
+    case accountRecoveryFailed(String?)
+    case passwordResetFailed(String?)
     case getExpensesFailed(String?)
     case createExpenseFailed(String?)
 }
@@ -24,6 +26,8 @@ extension ExpenseAppErrors: LocalizedError {
         case .noNetwork: return String.ErrorMessages.noInternetConnection
         case .signupFailed(let reason),
              .loginFailed(let reason),
+             .accountRecoveryFailed(let reason),
+             .passwordResetFailed(let reason),
              .getExpensesFailed(let reason),
              .createExpenseFailed(let reason): return reason ?? String.ErrorMessages.unknownError
         }

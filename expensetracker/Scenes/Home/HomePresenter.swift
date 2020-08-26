@@ -21,4 +21,8 @@ extension HomePresenter: HomeViewOutput {
     func signOut() {
         Utility.signOut(parentVC: (self.view as? UIViewController))
     }
+    func viewDidLoad() {
+        (self.view as? UIViewController)?.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.view?.nameLabel.text = UserDefaults.standard.signedInUser?.name.firstNameGreeting
+    }
 }

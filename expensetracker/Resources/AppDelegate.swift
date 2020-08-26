@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+    
+    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+        print("URL HERE... ", url)
+        return true
+    }
 
     // MARK: UISceneSession Lifecycle
 

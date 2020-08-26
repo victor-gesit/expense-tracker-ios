@@ -27,4 +27,7 @@ class LoginViewController: BaseViewController, LoginInput {
     @IBAction func logIn(_ sender: UIButton) {
         presenter?.signIn()
     }
+    @IBAction func recoverAccount(_ sender: UIButton) {
+        presenter?.recoverAccount()
+    }
 }

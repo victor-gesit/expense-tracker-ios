@@ -62,7 +62,7 @@ extension AddExpensePresenter: AddExpenseOutput {
         if let amount = view.amountTextField.text, !amount.isEmpty,
             let category = view.category?.category ?? view.categoryTextField.text {
             guard let amount = Double(amount) else {
-                Utility.showError(message: String.ErrorMessages.invalidAmount, view: self.parentView)
+                Utility.showNotification(message: String.ErrorMessages.invalidAmount, view: self.parentView, isError: true)
                 return
             }
             
@@ -71,14 +71,14 @@ extension AddExpensePresenter: AddExpenseOutput {
             server.createExpense(category: category, purpose: description, amount: amount) { (result, error) in
                 self.toggleButton(enable: true)
                 guard let expense = result else {
-                    Utility.showError(message: error?.localizedDescription, view: self.parentView)
+                    Utility.showNotification(message: error?.localizedDescription, view: self.parentView, isError: true)
                     return
                 }
                 self.view?.delegate?.didCreateExpense(expense: expense)
                 self.dismissView()
             }
         } else {
-            Utility.showError(message: String.ErrorMessages.missingFields, view: self.parentView)
+            Utility.showNotification(message: String.ErrorMessages.missingFields, view: self.parentView, isError: true)
         }
     }
 }

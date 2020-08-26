@@ -9,16 +9,15 @@
 import Foundation
 import UIKit
 
-protocol LoginInput: class {
+protocol PasswordResetInput: class {
     var view: UIView! { get set }
-    var emailTextField: UITextField! { get set }
     var passwordTextField: UITextField! { get set }
+    var reenterPasswordTextField: UITextField! { get set }
     var continueButton: UIButton! { get set }
     var activityIndicator: UIActivityIndicatorView! { get set }
 }
 
-protocol LoginOutput: class {
-    func signIn()
-    func goToSignup()
-    func recoverAccount()
+protocol PasswordResetOutput: class {
+    func resetPassword()
+    func goToLogin()
 }

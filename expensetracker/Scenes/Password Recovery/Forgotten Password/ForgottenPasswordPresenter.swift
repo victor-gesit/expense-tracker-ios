@@ -9,38 +9,32 @@
 import Foundation
 import UIKit
 
-class SignupPresenter: NSObject {
-    weak var view: SignupInput?
+class ForgottenPasswordPresenter: NSObject {
+    weak var view: ForgottenPasswordInput?
     var parentView: UIView
     private let server = ExpenseAppServer.shared
     
-    init(view: SignupInput) {
+    init(view: ForgottenPasswordInput) {
         self.view = view
         self.parentView = view.view
     }
 
-    private func validateAndSignUp() {
+    private func validateAndRecoverAccount() {
         guard let view = self.view else { return }
-        if let email = view.emailTextField.text, !email.isEmpty,
-            let name = view.nameTextField.text, !name.isEmpty,
-            let password = view.passwordTextField.text, !password.isEmpty {
+        if let email = view.emailTextField.text, !email.isEmpty {
             if !email.isValidEmail() {
                 Utility.showNotification(message: String.ErrorMessages.invalidEmail, view: self.parentView, isError: true)
                 return
             }
             
-            if !password.isValidPasswordText() {
-                Utility.showNotification(message: String.ErrorMessages.passwordError, view: self.parentView, isError: true)
-                return
-            }
-            
             toggleButton(enable: false)
-            server.signUp(name: name, email: email, password: password) { (user, error) in
+            server.recoverAccount(email: email) { (error) in
                 self.toggleButton(enable: true)
                 if let error = error {
                     Utility.showNotification(message: error.localizedDescription, view: self.parentView, isError: true)
                 } else {
-                    Utility.goHome()
+                    Utility.showNotification(message: String.SuccessMessages.recoveryMailSent, view: self.parentView)
+                    (self.view as? UIViewController)?.dismiss(animated: true)
                 }
             }
         } else {
@@ -54,13 +48,14 @@ class SignupPresenter: NSObject {
     }
 }
 
-extension SignupPresenter: SignupOutput {
+extension ForgottenPasswordPresenter: ForgottenPasswordOutput {
     func goToLogin() {
-        let loginVC = LoginViewController.instantiate(fromAppStoryboard: .Main)
-        (self.view as? UIViewController)?.navigationController?.pushViewController(loginVC, animated: true)
+        Utility.goToLogin()
     }
     
-    func signUp() {
-        validateAndSignUp()
+    func recoverAccount() {
+        validateAndRecoverAccount()
     }
 }
+
+

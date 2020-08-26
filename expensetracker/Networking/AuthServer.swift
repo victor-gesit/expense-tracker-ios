@@ -9,7 +9,7 @@
 import Foundation
 
 extension ExpenseAppServer {
-    func signUp(name: String, email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
+    func signUp(name: String, email: String, password: String, completion: @escaping UserAuthenticationCompletionHandler) {
         let parameters = [
             "name": name,
             "email": email,
@@ -27,7 +27,7 @@ extension ExpenseAppServer {
         }
     }
     
-    func signIn(email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
+    func signIn(email: String, password: String, completion: @escaping UserAuthenticationCompletionHandler) {
         let parameters = [
             "email": email,
             "password": password
@@ -40,6 +40,38 @@ extension ExpenseAppServer {
                 }
             } else {
                 completion(nil, error ?? ExpenseAppErrors.loginFailed(result?.errors?.first ?? result?.message))
+            }
+        }
+    }
+    
+    func recoverAccount(email: String, completion: @escaping AccountRecoveryCompletionHandler) {
+        let parameters = [
+            "email": email
+        ]
+        makeAPICall(route: .recoverAccount, method: .post, paramaters: parameters, type: UserAuthResponse.self) { (error, data, result) in
+            if let success = result?.success, success {
+                self.saveSignedInUser(user: result?.user, token: result?.token)
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            } else {
+                completion(error ?? ExpenseAppErrors.accountRecoveryFailed(result?.errors?.first ?? result?.message))
+            }
+        }
+    }
+    
+    func resetPassword(newPassword: String, completion: @escaping AccountRecoveryCompletionHandler) {
+        let parameters = [
+            "newPassword": newPassword
+        ]
+        makeAPICall(route: .resetPassword, method: .post, paramaters: parameters, type: UserAuthResponse.self) { (error, data, result) in
+            if let success = result?.success, success {
+                self.saveSignedInUser(user: result?.user, token: result?.token)
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            } else {
+                completion(error ?? ExpenseAppErrors.passwordResetFailed(result?.errors?.first ?? result?.message))
             }
         }
     }

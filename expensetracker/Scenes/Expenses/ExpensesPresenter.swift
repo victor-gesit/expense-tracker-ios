@@ -49,7 +49,7 @@ extension ExpensesViewPresenter: ExpensesViewOutput {
                 self?.view?.tableView.refreshControl?.endRefreshing()
             }
             guard let expenses = result else {
-                Utility.showError(message: error?.localizedDescription, view: self?.parentView)
+                Utility.showNotification(message: error?.localizedDescription, view: self?.parentView, isError: true)
                 return
             }
             self?.expenses = expenses
